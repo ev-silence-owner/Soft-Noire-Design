@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0A0A0B" />
+  <meta name="description" content="Soft Noire Design — a perceptual operating language for System Silence. Sixty seconds of nothing. Not a dark-mode skin." />
+  <title>Soft Noire Design · System Silence</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Outfit:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="./tokens.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main id="arrival" class="arrival-screen" aria-labelledby="arrival-title">
+    <section class="arrival-content">
+      <div class="silence-mark" aria-hidden="true"></div>
+      <h1 id="arrival-title">System Silence</h1>
+      <p id="arrival-description">Nothing requires your attention now.</p>
+      <p class="sr-only" id="arrival-help">
+        System Silence is ready. This screen stays open as long as you need.
+      </p>
+      <div class="arrival-actions" aria-describedby="arrival-description arrival-help">
+        <button type="button" class="button button--primary" id="enter">
+          Enter when you choose
+        </button>
+        <button type="button" class="button button--quiet" id="skip">
+          Skip this moment
+        </button>
+      </div>
+      <label class="skip-preference">
+        <input type="checkbox" name="skip-arrival" id="remember" />
+        Do not show this moment again
+      </label>
+    </section>
+  </main>
+
+  <main id="interior" class="interior-screen hidden" aria-labelledby="interior-title" hidden>
+    <section class="interior-content">
+      <div class="silence-mark" aria-hidden="true"></div>
+      <h1 id="interior-title">You entered.</h1>
+      <p>Nothing was extracted. Silence remains available.</p>
+      <div class="arrival-actions">
+        <button type="button" class="button button--quiet" id="restore">
+          Show the arrival again
+        </button>
+      </div>
+      <p class="micro">Soft Noire Design is the umbrella. System Silence is the product system. This is not a clinic, not dark mode, and not LIVE.</p>
+    </section>
+  </main>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

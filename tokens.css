@@ -1,0 +1,33 @@
+:root {
+  --silence-void: #0a0a0b;
+  --silence-black: #101114;
+  --graphite-01: #17181b;
+  --graphite-02: #202125;
+  --graphite-03: #2a2c31;
+  --silver-muted: #969aa3;
+  --silver-soft: #c4c7ce;
+  --silver-core: #d7d9de;
+  --silver-light: #f2f3f5;
+  --gold-muted: #8f6e32;
+  --gold-core: #c6a15b;
+  --gold-light: #e3c47a;
+  --success: #72b89b;
+  --warning: #d9a760;
+  --danger: #d97777;
+  --info: #8caeda;
+
+  --phi: 1.618;
+  --space-8: 0.5rem;
+  --space-13: 0.8125rem;
+  --space-21: 1.3125rem;
+  --space-34: 2.125rem;
+  --space-55: 3.4375rem;
+
+  --time-feedback: 130ms;
+  --time-surface: 210ms;
+  --time-settle: 340ms;
+
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --target: 44px;
+  --focus: #f2f3f5;
+}
