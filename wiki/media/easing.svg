@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 140" width="720" height="140">
+  <rect width="720" height="140" fill="#0F0F14"/>
+  <text x="20" y="28" fill="#ADADBD" font-family="ui-sans-serif,system-ui" font-size="12">easing · zero bounce</text>
+  <text x="20" y="56" fill="#E8E4DF" font-family="ui-monospace,monospace" font-size="13">--ease-phi         cubic-bezier(0.382, 0, 0.618, 1)</text>
+  <text x="20" y="78" fill="#CBD5E1" font-family="ui-monospace,monospace" font-size="13">--ease-phi-decel   cubic-bezier(0, 0.382, 0.382, 1)</text>
+  <text x="20" y="100" fill="#CBD5E1" font-family="ui-monospace,monospace" font-size="13">--ease-phi-accel   cubic-bezier(0.618, 0, 1, 0.618)</text>
+  <text x="20" y="122" fill="#CBD5E1" font-family="ui-monospace,monospace" font-size="13">--ease-settle      cubic-bezier(0.236, 0, 0.236, 1)</text>
+</svg>
