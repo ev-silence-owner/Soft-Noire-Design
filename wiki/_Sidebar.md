@@ -1,23 +1,8 @@
-**Soft Noire Design**
-- [Home](Home)
-- [What this is](What-this-is)
-- [Brand architecture](Brand-architecture)
+**Soft Noire**
+- [Home](Home.md)
+- [Mental Studio](Mental-Studio.md)
+- [Designer 2030](Designer-2030.md)
+- [Awards 2030](Awards-2030.md)
 
-**Ritual**
-- [Sixty Seconds of Nothing](Sixty-Seconds-of-Nothing)
-- [Golden Silence Entry](Golden-Silence-Entry)
-- [Ritual components](Ritual-components)
-
-**Law**
-- [Palette](Palette)
-- [φ Architecture](Phi-Architecture)
-- [Silence Protocol](Silence-Protocol)
-- [Tokens](Tokens)
-- [Arrival WCAG](Arrival-WCAG)
-- [Non-clinical](Non-clinical)
-
-**Product**
-- [Surfaces](Surfaces)
-- [Wallpapers](Wallpapers)
-- [Status](Status)
-- [Award thesis](Award-thesis)
+**Repo**
+- [Soft-Noire-Design](https://github.com/ev-silence-owner/Soft-Noire-Design)
