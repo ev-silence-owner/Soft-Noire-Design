@@ -16,7 +16,9 @@ Not a single app. Not a dark-mode variant. Not a skin to drop on a product.
 It begins with sixty seconds of nothing: no demand, no prompt, no reward loop, no visual urgency.  
 It protects attention through deterministic rules for luminance, chroma, timing, hierarchy and proportion.
 
-[What this is](#what-this-is) · [Theses](#three-theses) · [Architecture](#brand-architecture) · [Arrival](#sixty-seconds-of-nothing) · [Palette](#soft-noire-palette) · [φ](#φ-proportion-framework) · [Status](#status)
+[Wiki canon](./wiki/Home.md) · [What this is](#what-this-is) · [Theses](#three-theses) · [Architecture](#brand-architecture) · [Arrival](#sixty-seconds-of-nothing) · [Palette](#soft-noire-palette) · [φ](#φ-proportion-framework) · [Status](#status)
+
+**Canon lives in [`wiki/`](./wiki/Home.md)** (GitHub Wiki git is empty until the first page is created in the UI; these files are the source).
 
 </div>
 
@@ -257,6 +259,7 @@ This repository does not certify WCAG, Apple HIG, or any outcome. Compliance is 
 
 | File | Role |
 |---|---|
+| [wiki/](./wiki/Home.md) | Full canon: ritual, palette, φ, WCAG, tokens, surfaces |
 | [index.html](./index.html) | Optional arrival demo — enter immediately, stay as long as you like |
 | [ARRIVAL.md](./ARRIVAL.md) | WCAG 2.2 arrival contract and acceptance tests |
 | [tokens.css](./tokens.css) | Soft Noire palette and φ spacing/timing tokens |
