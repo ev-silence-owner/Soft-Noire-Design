@@ -1,0 +1,15 @@
+[package]
+name = "soft-noire-wallpaper"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Soft Noire lock/home wallpapers + on-device tap/signal measure. Not a medical device."
+publish = false
+
+[lib]
+name = "soft_noire_wallpaper"
+path = "src/lib.rs"
+
+[[bin]]
+name = "soft-noire-wallpaper"
+path = "src/main.rs"
