@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200">
+  <rect width="720" height="200" fill="#0F0F14"/>
+  <text x="24" y="32" fill="#ADADBD" font-family="ui-sans-serif,system-ui" font-size="12" letter-spacing="0.12em">2030 BENCHMARK</text>
+  <g font-family="ui-sans-serif,system-ui">
+    <rect x="24" y="52" width="216" height="120" rx="8" fill="#1A1A20" stroke="#C9A84C"/>
+    <text x="132" y="92" text-anchor="middle" fill="#C9A84C" font-size="13">1</text>
+    <text x="132" y="118" text-anchor="middle" fill="#E8E4DF" font-size="16">UX Design Awards</text>
+    <text x="132" y="142" text-anchor="middle" fill="#ADADBD" font-size="11">evidence first</text>
+    <rect x="252" y="52" width="216" height="120" rx="8" fill="#1A1A20" stroke="#32323E"/>
+    <text x="360" y="92" text-anchor="middle" fill="#CBD5E1" font-size="13">2</text>
+    <text x="360" y="118" text-anchor="middle" fill="#E8E4DF" font-size="16">iF UX/UI</text>
+    <text x="360" y="142" text-anchor="middle" fill="#ADADBD" font-size="11">impact + execution</text>
+    <rect x="480" y="52" width="216" height="120" rx="8" fill="#1A1A20" stroke="#32323E"/>
+    <text x="588" y="92" text-anchor="middle" fill="#CBD5E1" font-size="13">3</text>
+    <text x="588" y="118" text-anchor="middle" fill="#E8E4DF" font-size="16">Apple Design Awards</text>
+    <text x="588" y="142" text-anchor="middle" fill="#ADADBD" font-size="11">inclusivity as product</text>
+  </g>
+</svg>

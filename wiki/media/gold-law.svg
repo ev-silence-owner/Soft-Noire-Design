@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" width="360" height="90">
+  <rect width="360" height="90" fill="#0F0F14"/>
+  <rect x="20" y="24" width="160" height="42" rx="4" fill="none" stroke="#C9A84C"/>
+  <text x="100" y="50" text-anchor="middle" fill="#C9A84C" font-family="ui-sans-serif,system-ui" font-size="13">signal</text>
+  <rect x="196" y="24" width="140" height="42" rx="4" fill="#1A1A20" stroke="#32323E"/>
+  <text x="266" y="50" text-anchor="middle" fill="#E8E4DF" font-family="ui-sans-serif,system-ui" font-size="13">quiet</text>
+</svg>

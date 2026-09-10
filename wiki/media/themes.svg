@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" width="560" height="220">
+  <rect width="560" height="220" fill="#0F0F14"/>
+  <text x="24" y="28" fill="#ADADBD" font-family="ui-sans-serif,system-ui" font-size="11" letter-spacing="0.16em">MOTYW CISZY</text>
+  <g font-family="ui-sans-serif,system-ui" font-size="14">
+    <rect x="24" y="48" width="248" height="64" rx="14" fill="#121417" stroke="#C9A84C" stroke-width="1"/>
+    <circle cx="52" cy="80" r="10" fill="#C49A6A"/>
+    <text x="74" y="85" fill="#E8E4DF">Ember Silence</text>
+    <rect x="288" y="48" width="248" height="64" rx="14" fill="#121417" stroke="#32323E" stroke-width="1"/>
+    <circle cx="316" cy="80" r="10" fill="#6B8F96"/>
+    <text x="338" y="85" fill="#E8E4DF">Graphite Drift</text>
+    <rect x="24" y="128" width="248" height="64" rx="14" fill="#121417" stroke="#32323E" stroke-width="1"/>
+    <circle cx="52" cy="160" r="10" fill="#D4C4A8"/>
+    <text x="74" y="165" fill="#E8E4DF">Midnight Paper</text>
+    <rect x="288" y="128" width="248" height="64" rx="14" fill="#121417" stroke="#32323E" stroke-width="1"/>
+    <circle cx="316" cy="160" r="10" fill="#8EC0C7"/>
+    <text x="338" y="165" fill="#E8E4DF">Ion Haze</text>
+  </g>
+</svg>
