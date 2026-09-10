@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0A0A0B" />
+  <title>Soft Noire · Wallpapers</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Outfit:wght@400;600&display=swap" />
+  <style>
+    :root {
+      --silence-void: #0a0a0b;
+      --graphite-01: #17181b;
+      --silver-muted: #969aa3;
+      --silver-light: #f2f3f5;
+      --gold-core: #c6a15b;
+      --target: 44px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--silence-void); color: var(--silver-light); font-family: Outfit, system-ui, sans-serif; }
+    main { max-width: 920px; margin: 0 auto; padding: 34px 21px 55px; }
+    h1 { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: 2.4rem; margin: 8px 0; }
+    p { color: var(--silver-muted); line-height: 1.5; }
+    .grid { display: grid; gap: 34px; }
+    @media (min-width: 800px) { .grid { grid-template-columns: 260px 1fr; } }
+    canvas { width: min(100%, 240px); height: auto; border-radius: 28px; touch-action: none; display: block; }
+    .phone { border: 1px solid #2a2c31; border-radius: 40px; padding: 12px; background: #101114; display: inline-block; }
+    button, select { min-height: var(--target); min-width: var(--target); border-radius: 18px; border: 1px solid #2a2c31; background: #17181b; color: var(--silver-light); padding: 0 16px; font: inherit; cursor: pointer; }
+    button.gold { background: var(--gold-core); color: var(--silence-void); border: 0; }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    dl { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; border: 1px solid #2a2c31; border-radius: 28px; padding: 21px; }
+    dt { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--silver-muted); }
+    dd { margin: 4px 0 0; font-family: "Cormorant Garamond", serif; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+    .hint { font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p style="letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--silver-muted)">Soft Noire</p>
+    <h1>Silence on the lock screen</h1>
+    <p>Four motifs. One gold mark. Tap to measure interval, zone, and signal. On this device only. Not a diagnosis.</p>
+    <div class="grid">
+      <div>
+        <div class="phone"><canvas id="field" width="390" height="844" aria-label="Wallpaper field"></canvas></div>
+        <p class="hint">Tap the gold. Wait 1618 ms. Repeat.</p>
+      </div>
+      <div>
+        <div class="row" id="motifs"></div>
+        <div class="row">
+          <button type="button" id="lock">Lock</button>
+          <button type="button" id="home">Home</button>
+        </div>
+        <label class="hint">Size<br />
+          <select id="size">
+            <option value="ios-1290x2796">iPhone Pro Max · 1290×2796</option>
+            <option value="ios-1179x2556">iPhone Pro · 1179×2556</option>
+            <option value="android-1080x2400">Android FHD+ · 1080×2400</option>
+            <option value="android-1440x3200">Android QHD+ · 1440×3200</option>
+          </select>
+        </label>
+        <dl>
+          <div><dt>Taps</dt><dd id="taps">0</dd></div>
+          <div><dt>Zone</dt><dd id="zone">—</dd></div>
+          <div><dt>Gold</dt><dd id="gold">0</dd></div>
+          <div><dt>Interval</dt><dd id="interval">—</dd></div>
+          <div><dt>Tempo</dt><dd id="tempo">0.00</dd></div>
+          <div><dt>Stillness</dt><dd id="still">0 ms</dd></div>
+          <div><dt>Signal</dt><dd id="signal">0.000</dd></div>
+          <div><dt>Cap</dt><dd>0.55</dd></div>
+        </dl>
+        <p id="spam" class="hint" hidden>Too many taps. Signal held.</p>
+        <div class="row">
+          <button type="button" class="gold" id="dl">Download PNG</button>
+          <button type="button" id="log">Export log</button>
+          <button type="button" id="clear">Clear</button>
+        </div>
+        <p id="hint" class="hint"></p>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="./studio.js"></script>
+</body>
+</html>

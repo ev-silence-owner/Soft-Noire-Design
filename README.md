@@ -260,6 +260,8 @@ This repository does not certify WCAG, Apple HIG, or any outcome. Compliance is 
 | [index.html](./index.html) | Optional arrival demo — enter immediately, stay as long as you like |
 | [ARRIVAL.md](./ARRIVAL.md) | WCAG 2.2 arrival contract and acceptance tests |
 | [tokens.css](./tokens.css) | Soft Noire palette and φ spacing/timing tokens |
+| [WALLPAPERS.md](./WALLPAPERS.md) | iOS/Android lock-home wallpapers + tap/signal (Rust) |
+| [wallpapers/](./wallpapers/) | Download studio — measure taps on this device |
 | [LICENSE](./LICENSE) | MIT for the files; marks stay authorial |
 
 Related product surface: [entry-gate](https://github.com/ev-silence-owner/entry-gate) (Screen Zero). Entry Gate consumes this language. It is not the umbrella.
