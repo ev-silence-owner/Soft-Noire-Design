@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/phi.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/motion.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/radii.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/themes.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/audio.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/states.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/styles.css">
+  <script src="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;height:100%;overflow:hidden;background:var(--surface-zero)}
+    @keyframes gse-breath{0%{transform:scale(1);opacity:.9}38.2%,61.8%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.9}}
+    @keyframes gse-breath-reduced{0%{opacity:.9}38.2%,61.8%{opacity:1}100%{opacity:.9}}
+    @keyframes gse-particle{0%,100%{opacity:.236}38.2%,61.8%{opacity:.618}}
+    @media (prefers-reduced-motion: reduce){
+      .gse-root, .gse-root *{animation-duration:0.01ms !important;transition-duration:0.01ms !important}
+    }
+  </style>
+</helmet>
+
+<div class="gse-root" data-silence-theme="{{ theme }}" data-screen-label="SESJA_ZERO" role="button" tabIndex="0" aria-label="Sesja Zero. Dotknięcie w fazie ciszy kończy sesję." onClick="{{ handleTouch }}" style="position:fixed;inset:0;background:var(--surface-zero);overflow:hidden;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent">
+
+  <div aria-hidden="true" style="{{ deepStyle }}position:absolute;inset:0;background:var(--surface-zero-deep);pointer-events:none;transition:opacity var(--dur-rest) var(--ease-settle)"></div>
+  <div aria-hidden="true" style="{{ textureStyle }}position:absolute;inset:-5%;pointer-events:none;mix-blend-mode:soft-light;transition:opacity var(--dur-rest) var(--ease-settle)">
+    <svg width="100%" height="100%" style="position:absolute;inset:0;display:block">
+      <filter id="gse-grain"><feTurbulence type="fractalNoise" baseFrequency="0.809" numOctaves="3" stitchTiles="stitch" seed="21"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <filter id="gse-paper"><feTurbulence type="fractalNoise" baseFrequency="0.0382 0.0618" numOctaves="5" stitchTiles="stitch" seed="8"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <filter id="gse-band"><feTurbulence type="fractalNoise" baseFrequency="0.0618 0.0021" numOctaves="2" stitchTiles="stitch" seed="13"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <filter id="gse-haze"><feTurbulence type="fractalNoise" baseFrequency="0.0089" numOctaves="4" stitchTiles="stitch" seed="5"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <rect width="100%" height="100%" filter="{{ textureFilter }}"></rect>
+    </svg>
+  </div>
+  <div aria-hidden="true" style="{{ vignetteStyle }}position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 61.8% 38.2%, transparent 38.2%, rgba(13,15,18,0.618) 89%);transition:opacity var(--dur-rest) var(--ease-settle)"></div>
+
+  <div aria-hidden="true" style="{{ spiralStyle }}position:absolute;left:61.8%;top:38.2%;width:0;height:0;pointer-events:none;transition:opacity var(--dur-rest) var(--ease-settle)">{{ spiral }}</div>
+
+  <div aria-hidden="true" style="{{ particlesStyle }}position:absolute;inset:0;pointer-events:none;transition:opacity var(--dur-rest) var(--ease-settle)">
+    <sc-for list="{{ particles }}" as="p" hint-placeholder-count="0">
+      <div style="{{ p.style }}position:absolute;width:3px;height:3px;border-radius:50%;background:var(--accent-theme);animation-name:gse-particle;animation-timing-function:var(--ease-phi);animation-iteration-count:infinite"></div>
+    </sc-for>
+  </div>
+
+  <div style="position:absolute;left:61.8%;top:38.2%;translate:-50% -50%;pointer-events:none">
+    <div aria-hidden="true" style="{{ formStyle }}width:144px;height:233px;border-radius:var(--radius-ritual, 21px);border:1px solid var(--accent-gold);box-shadow:inset 0 0 21px color-mix(in srgb,var(--accent-gold) 3.82%,transparent);transition:opacity var(--dur-rest) var(--ease-settle), filter var(--dur-rest) var(--ease-settle);animation-duration:var(--dur-ceremony);animation-timing-function:var(--ease-breath);animation-iteration-count:infinite"></div>
+  </div>
+
+  <p aria-live="polite" style="{{ textStyle }}position:absolute;top:61.8%;left:50%;translate:-50% 0;margin:0;padding:0 var(--space-phi-1);text-align:center;font-family:var(--font-display);font-size:var(--fs-1);line-height:1.2;letter-spacing:var(--ls-ritual);color:var(--text-ritual);pointer-events:none;text-wrap:pretty">{{ phaseText }}</p>
+
+  <div aria-hidden="true" style="position:absolute;top:var(--space-phi-1);right:var(--space-phi-1);display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-fib-4);font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted);pointer-events:none">
+    <span>φ {{ phiRatio }}</span>
+    <span style="opacity:0.618">{{ elapsedLabel }}</span>
+  </div>
+  <div aria-hidden="true" style="position:absolute;bottom:var(--space-phi-1);left:var(--space-phi-1);right:var(--space-phi-1);display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted);pointer-events:none">
+    <span>{{ phaseLabel }}</span>
+    <span>SESJA_ZERO · 60 000 MS</span>
+  </div>
+
+  <sc-if value="{{ showReveal }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-label="Zakończenie sesji" onClick="{{ stop }}" style="position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--surface-zero) 89%,transparent);cursor:default">
+      <div style="display:flex;flex-direction:column;gap:var(--space-phi-1);width:min(89vw,377px);padding:var(--space-phi-1);background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:21px">
+        <span style="font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted)">{{ revealLabel }}</span>
+        <p style="margin:0;font-family:var(--font-display);font-size:var(--fs-2);line-height:1.1;letter-spacing:var(--ls-ritual);color:var(--text-primary)">{{ revealSeconds }}<span style="font-size:var(--fs-0);color:var(--text-secondary)"> s</span></p>
+        <div aria-hidden="true" style="height:1px;background:var(--border-subtle);position:relative">
+          <div style="{{ scoreBarStyle }}position:absolute;left:0;top:0;height:1px;background:var(--accent-gold);transition:width var(--dur-rest) var(--ease-settle)"></div>
+        </div>
+        <p style="margin:0;font-family:var(--font-body);font-size:var(--fs-0);line-height:var(--lh-body);color:var(--text-secondary)">{{ revealNote }}</p>
+        <div style="display:flex;justify-content:flex-end">
+          <x-import component-from-global-scope="SoftNoirDesignSystem_aee1d5.Button" variant="signal" onClick="{{ handleContinue }}" hint-size="auto,44px">Kontynuuj</x-import>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;onExit&quot;: {&quot;editor&quot;: null, &quot;tsType&quot;: &quot;(r: {comfort_ms: number, phase: string}) =&gt; void&quot;},
+  &quot;theme&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;ember&quot;, &quot;options&quot;: [&quot;ember&quot;, &quot;graphite&quot;, &quot;midnight&quot;, &quot;ion&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Rytuał&quot;},
+  &quot;timeScale&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: 1, &quot;options&quot;: [1, 4, 10], &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Rytuał&quot;},
+  &quot;reducedMotion&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Rytuał&quot;}
+}">
+const PHI = 1.618033988749895;
+const T = { golden: 1618, phi_sq: 2618, phi_3: 4236, ceremony: 6854 };
+const PH = [
+  ['entry',     4 * T.golden],                       /* 6472 */
+  ['deepening', 4 * T.phi_sq],                       /* 10472 */
+  ['silence',   20 * T.golden],                      /* 32360 */
+  ['return',    T.phi_3 + 4 * T.golden - 12],        /* 10696 */
+];
+const TOTAL = 60000;
+const BOUND = PH.reduce((a, [, d]) => { a.push((a[a.length - 1] || 0) + d); return a; }, []);
+const LABEL = { entry: 'WEJŚCIE', deepening: 'GŁĘBIENIE', silence: 'CISZA', return: 'POWRÓT' };
+
+/* Deterministic Fibonacci hash: 21 = F(8) particles on golden-angle lattice */
+function particles() {
+  const out = [];
+  for (let i = 0; i < 21; i++) {
+    const a = i * 2 * Math.PI / (PHI * PHI);
+    const r = 0.13 + 0.382 * Math.sqrt((i + 0.5) / 21);
+    const x = 61.8 + Math.cos(a) * r * 61.8;
+    const y = 38.2 + Math.sin(a) * r * 61.8;
+    const dur = T.phi_3 + ((i * 13) % 8) * 618;
+    const delay = -((i * 21) % 13) * 618;
+    out.push({ style: `left:${x.toFixed(3)}%;top:${y.toFixed(3)}%;animation-duration:${dur}ms;animation-delay:${delay}ms;` });
+  }
+  return out;
+}
+
+function spiralPath() {
+  const pts = [];
+  const a = 2.6;
+  for (let th = 0; th <= Math.PI * 7; th += 0.1) {
+    const r = a * Math.pow(PHI, (2 * th) / Math.PI);
+    pts.push(`${(r * Math.cos(th)).toFixed(2)},${(r * Math.sin(th)).toFixed(2)}`);
+  }
+  return 'M' + pts.join(' L');
+}
+const SPIRAL_D = spiralPath();
+
+class Component extends DCLogic {
+  state = { elapsed: 0, exit: null, done: false };
+  _particles = particles();
+
+  componentDidMount() {
+    this._start = performance.now();
+    this._spun = 0; this._lastT = 0;
+    const loop = (now) => {
+      if (this.state.done) return;
+      const scale = this.props.timeScale ?? 1;
+      const el = Math.min((now - this._start) * scale, TOTAL);
+      const ph = this._phaseAt(el);
+      if (ph === 'deepening' || ph === 'return') this._spun += el - this._lastT;
+      this._lastT = el;
+      if (el >= TOTAL) { this.setState({ elapsed: TOTAL, exit: TOTAL, done: true }); return; }
+      this.setState({ elapsed: el });
+      this._raf = requestAnimationFrame(loop);
+    };
+    this._raf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); }
+
+  _phaseAt(el) { for (let i = 0; i < PH.length; i++) if (el < BOUND[i]) return PH[i][0]; return 'return'; }
+
+  handleTouch = () => {
+    if (this.state.done) return;
+    const ph = this._phaseAt(this.state.elapsed);
+    if (ph !== 'silence' && ph !== 'return') return;
+    cancelAnimationFrame(this._raf);
+    const ms = Math.round(this.state.elapsed);
+    this.setState({ exit: ms, done: true });
+    if (this.props.onExit) this.props.onExit({ comfort_ms: ms, phase: ph });
+  };
+  handleContinue = () => {
+    this._start = performance.now(); this._spun = 0; this._lastT = 0;
+    this.setState({ elapsed: 0, exit: null, done: false }, () => this.componentDidMount());
+  };
+  stop = (e) => e.stopPropagation();
+
+  renderVals() {
+    const { elapsed, exit, done } = this.state;
+    const ph = this._phaseAt(elapsed);
+    const reduced = (this.props.reducedMotion ?? false) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const inPhase = elapsed - (BOUND[PH.findIndex(p => p[0] === ph)] - PH.find(p => p[0] === ph)[1]);
+
+    const deep = { entry: 0, deepening: 0.382, silence: 0.618, return: 0.236 }[ph];
+    const formOp = { entry: Math.min(1, inPhase / T.golden), deepening: 0.52, silence: 0.22, return: 1 }[ph];
+    const blur = { entry: 0, deepening: 1, silence: 4, return: 0 }[ph];
+    const spiralOp = { entry: 0, deepening: 0.0618, silence: 0.0382, return: 0.0618 }[ph];
+    const partOp = { entry: 0, deepening: 1, silence: 0.382, return: 0.618 }[ph];
+    const spinDeg = (this._spun || 0) / 1000; /* 1°/s */
+
+    let text = '', textOp = 0;
+    if (ph === 'entry') { text = 'Pozwól sobie na ciszę'; textOp = Math.max(0, Math.min(1, (inPhase - T.golden) / T.golden)); }
+    if (ph === 'return') { text = 'Wracasz'; textOp = Math.min(1, inPhase / T.phi_3) * 0.618; }
+
+    const spiral = React.createElement('svg', {
+      width: 1400, height: 1400, viewBox: '-700 -700 1400 1400',
+      style: { position: 'absolute', left: -700, top: -700, transform: `rotate(${spinDeg.toFixed(2)}deg)`, overflow: 'visible' },
+    }, React.createElement('path', { d: SPIRAL_D, fill: 'none', stroke: 'var(--accent-theme)', strokeWidth: 1 }));
+
+    const exitMs = exit ?? 0;
+    return {
+      theme: this.props.theme || 'ember',
+      deepStyle: `opacity:${deep};`,
+      vignetteStyle: `opacity:${ph === 'entry' ? 0 : 1};`,
+      textureFilter: { ember: 'url(#gse-grain)', graphite: 'url(#gse-band)', midnight: 'url(#gse-paper)', ion: 'url(#gse-haze)' }[this.props.theme || 'ember'],
+      textureStyle: `opacity:${({ entry: 0.0382, deepening: 0.0618, silence: 0.0618, return: 0.0382 }[ph] * (reduced ? 1 : 1)).toFixed(4)};`,
+      spiralStyle: `opacity:${spiralOp};`,
+      particlesStyle: `opacity:${partOp};`,
+      particles: this._particles,
+      spiral,
+      formStyle: `opacity:${formOp.toFixed(3)};filter:blur(${blur}px);animation-name:${reduced ? 'gse-breath-reduced' : 'gse-breath'};animation-play-state:${done ? 'paused' : 'running'};`,
+      phaseText: text,
+      textStyle: `opacity:${textOp.toFixed(3)};transition:opacity ${T.golden}ms var(--ease-phi);`,
+      phiRatio: (elapsed / T.golden).toFixed(3),
+      elapsedLabel: `${String(Math.round(elapsed)).padStart(5, '0')} MS`,
+      phaseLabel: LABEL[ph],
+      showReveal: done,
+      revealLabel: exit >= TOTAL ? 'SESJA_ZERO · PEŁNY CYKL' : `COMFORT_MS ${exitMs}`,
+      revealSeconds: (exitMs / 1000).toFixed(1),
+      scoreBarStyle: `width:${((exitMs / TOTAL) * 100).toFixed(1)}%;`,
+      revealNote: exit >= TOTAL ? 'Cykl zamknął się sam. Możesz powtórzyć albo zostawić to tak.' : 'Wyjście zapisane. Możesz powtórzyć albo zostawić to tak.',
+      handleTouch: this.handleTouch,
+      handleContinue: this.handleContinue,
+      stop: this.stop,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/phi.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/motion.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/radii.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/themes.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/audio.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/states.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/styles.css">
+  <script src="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;height:100%;overflow:hidden;background:#111218}
+    .eg-root[data-silence-theme="ember"]{--eg-bg:#20241C;--eg-accent:#D8A45A;--eg-tier1:#292E24;--eg-tier2:#343A2E}
+    .eg-root[data-silence-theme="graphite"]{--eg-bg:#0E1116;--eg-accent:#6B8F96;--eg-tier1:#161B22;--eg-tier2:#1E252E}
+    .eg-root[data-silence-theme="midnight"]{--eg-bg:#111218;--eg-accent:#C49A6A;--eg-tier1:#1A1B23;--eg-tier2:#23252F}
+    .eg-root[data-silence-theme="ion"]{--eg-bg:#0E1318;--eg-accent:#8EC0C7;--eg-tier1:#161D24;--eg-tier2:#1E2730}
+    .eg-root[data-state="flow"]{--eg-accent-mix:100%;--eg-warm:0%;--eg-bright:1.05}
+    .eg-root[data-state="focus"]{--eg-accent-mix:72%;--eg-warm:0%;--eg-bright:1}
+    .eg-root[data-state="calm"]{--eg-accent-mix:50%;--eg-warm:6%;--eg-bright:0.95}
+    @keyframes eg-breath{0%{transform:scale(1);opacity:.9}38.2%,61.8%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.9}}
+    @keyframes eg-breath-reduced{0%{opacity:.9}38.2%,61.8%{opacity:1}100%{opacity:.9}}
+    @keyframes eg-particle{0%,100%{opacity:.236}38.2%,61.8%{opacity:.618}}
+    @media (prefers-reduced-motion: reduce){.eg-root,.eg-root *{animation-duration:0.01ms !important;transition-duration:0.01ms !important}}
+  </style>
+</helmet>
+
+<div class="eg-root" data-silence-theme="{{ theme }}" data-state="{{ jitai }}" data-screen-label="ENTRY_GATE" style="position:fixed;inset:0;overflow:hidden;user-select:none;-webkit-tap-highlight-color:transparent;background:color-mix(in srgb,var(--eg-bg) calc(100% - var(--eg-warm)),#C49A6A var(--eg-warm));filter:brightness(var(--eg-bright));transition:background var(--dur-rest) var(--ease-settle)">
+
+  <div aria-hidden="true" style="{{ hazeStyle }}position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 61.8% 38.2%, color-mix(in srgb,var(--eg-accent) 6.18%,transparent) 0%, transparent 61.8%);transition:opacity var(--dur-rest) var(--ease-settle)"></div>
+  <div aria-hidden="true" style="{{ deepStyle }}position:absolute;inset:0;background:#0A0B0F;pointer-events:none;transition:opacity var(--dur-rest) var(--ease-settle)"></div>
+  <div aria-hidden="true" style="{{ textureStyle }}position:absolute;inset:-5%;pointer-events:none;mix-blend-mode:soft-light;transition:opacity var(--dur-rest) var(--ease-settle)">
+    <svg width="100%" height="100%" style="position:absolute;inset:0;display:block">
+      <filter id="eg-grain"><feTurbulence type="fractalNoise" baseFrequency="0.809" numOctaves="3" stitchTiles="stitch" seed="21"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <filter id="eg-paper"><feTurbulence type="fractalNoise" baseFrequency="0.0382 0.0618" numOctaves="5" stitchTiles="stitch" seed="8"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <filter id="eg-band"><feTurbulence type="fractalNoise" baseFrequency="0.0618 0.0021" numOctaves="2" stitchTiles="stitch" seed="13"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <filter id="eg-haze"><feTurbulence type="fractalNoise" baseFrequency="0.0089" numOctaves="4" stitchTiles="stitch" seed="5"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+      <rect width="100%" height="100%" filter="{{ textureFilter }}"></rect>
+    </svg>
+  </div>
+  <div aria-hidden="true" style="{{ vignetteStyle }}position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 61.8% 38.2%, transparent 38.2%, rgba(13,15,18,0.618) 89%);transition:opacity var(--dur-rest) var(--ease-settle)"></div>
+
+  <div aria-hidden="true" style="{{ spiralStyle }}position:absolute;left:61.8%;top:38.2%;width:0;height:0;pointer-events:none;transition:opacity var(--dur-rest) var(--ease-settle)">{{ spiral }}</div>
+
+  <div aria-hidden="true" style="{{ particlesStyle }}position:absolute;inset:0;pointer-events:none;transition:opacity var(--dur-rest) var(--ease-settle)">
+    <sc-for list="{{ particles }}" as="p" hint-placeholder-count="0">
+      <div style="{{ p.style }}position:absolute;width:3px;height:3px;border-radius:50%;background:var(--eg-accent);animation-name:eg-particle;animation-timing-function:var(--ease-phi);animation-iteration-count:infinite"></div>
+    </sc-for>
+  </div>
+
+  <div style="position:absolute;left:61.8%;top:38.2%;translate:-50% -50%;pointer-events:none">
+    <div aria-hidden="true" style="{{ formStyle }}width:144px;height:233px;border-radius:21px;border:1px solid color-mix(in srgb,var(--eg-accent) var(--eg-accent-mix),var(--text-muted));box-shadow:inset 0 0 21px color-mix(in srgb,var(--eg-accent) 3.82%,transparent);transition:opacity var(--dur-rest) var(--ease-settle), filter var(--dur-rest) var(--ease-settle);animation-duration:var(--dur-ceremony);animation-timing-function:var(--ease-breath);animation-iteration-count:infinite"></div>
+  </div>
+
+  <p aria-live="polite" style="{{ textStyle }}position:absolute;top:61.8%;left:50%;translate:-50% 0;margin:0;padding:0 var(--space-phi-1);text-align:center;font-family:var(--font-display);font-size:var(--fs-1);line-height:1.2;letter-spacing:var(--ls-ritual);color:var(--text-ritual);pointer-events:none;text-wrap:pretty">{{ phaseText }}</p>
+
+  <div aria-hidden="true" style="position:absolute;top:var(--space-phi-1);left:var(--space-phi-1);display:flex;flex-direction:column;gap:var(--space-fib-4);font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted);pointer-events:none">
+    <span>{{ themeLabel }}</span>
+    <span style="opacity:0.618">{{ audioLabel }}</span>
+    <span style="opacity:0.618">{{ hapticLabel }}</span>
+  </div>
+  <div aria-hidden="true" style="position:absolute;top:var(--space-phi-1);right:var(--space-phi-1);display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-fib-4);font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted);pointer-events:none">
+    <span>φ {{ phiRatio }}</span>
+    <span style="opacity:0.618">{{ elapsedLabel }}</span>
+    <span style="opacity:0.618">{{ stateLabel }}</span>
+  </div>
+  <div aria-hidden="true" style="position:absolute;bottom:var(--space-phi-1);left:var(--space-phi-1);right:var(--space-phi-1);display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted);pointer-events:none">
+    <span>{{ phaseLabel }}</span>
+    <span>ENTRY_GATE · 60 000 MS</span>
+  </div>
+
+  <div onClick="{{ handleTouch }}" role="button" tabIndex="0" aria-label="Dotknięcie w fazie ciszy kończy sesję" style="{{ touchStyle }}position:absolute;inset:0;cursor:pointer"></div>
+
+  <sc-if value="{{ showGate }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;inset:0;display:grid;place-items:safe center;overflow:auto;padding:var(--space-phi-1) 0;box-sizing:border-box;background:color-mix(in srgb,var(--eg-bg) 89%,transparent)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-phi-1);width:min(89vw,377px);padding:var(--space-phi-1);background:var(--eg-tier1);border:1px solid var(--border-subtle);border-radius:21px">
+        <span style="font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted)">ENTRY_GATE · SESJA ZERO</span>
+        <p style="margin:0;font-family:var(--font-display);font-size:var(--fs-1);line-height:1.2;letter-spacing:var(--ls-ritual);color:var(--text-primary)">Sześćdziesiąt sekund ciszy.</p>
+        <p style="margin:0;font-family:var(--font-body);font-size:var(--fs-0);line-height:var(--lh-body);color:var(--text-secondary)">Dźwięk startuje razem z sesją. Możesz go wyłączyć albo zostawić.</p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-fib-4)">
+          <span style="font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted)">MOTYW</span>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-fib-4)">
+            <sc-for list="{{ themeOptions }}" as="t" hint-placeholder-count="4">
+              <button onClick="{{ t.pick }}" style="{{ t.style }}min-height:44px;padding:var(--space-fib-4) var(--space-fib-5);text-align:left;background:var(--eg-tier2);border-radius:12px;font-family:var(--font-body);font-size:var(--fs-0);color:var(--text-primary);cursor:pointer;display:flex;align-items:center;gap:var(--space-fib-4)">
+                <span aria-hidden="true" style="{{ t.dot }}width:8px;height:8px;border-radius:50%;flex:none"></span>
+                <span>{{ t.name }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-fib-4)">
+          <span style="font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted)">STAN</span>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-fib-4)">
+            <sc-for list="{{ stateOptions }}" as="s" hint-placeholder-count="3">
+              <button onClick="{{ s.pick }}" style="{{ s.style }}min-height:44px;background:var(--eg-tier2);border-radius:12px;font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-primary);cursor:pointer">{{ s.name }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-fib-5)">
+          <x-import component-from-global-scope="SoftNoirDesignSystem_aee1d5.Button" variant="bare" onClick="{{ toggleAudio }}" hint-size="auto,44px">{{ audioToggleLabel }}</x-import>
+          <x-import component-from-global-scope="SoftNoirDesignSystem_aee1d5.Button" variant="signal" onClick="{{ handleEnter }}" hint-size="auto,44px">Wejdź</x-import>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showReveal }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-label="Zakończenie sesji" style="position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--eg-bg) 89%,transparent)">
+      <div style="display:flex;flex-direction:column;gap:var(--space-phi-1);width:min(89vw,377px);padding:var(--space-phi-1);background:var(--eg-tier1);border:1px solid var(--border-subtle);border-radius:21px">
+        <span style="font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted)">{{ revealLabel }}</span>
+        <p style="margin:0;font-family:var(--font-display);font-size:var(--fs-2);line-height:1.1;letter-spacing:var(--ls-ritual);color:var(--text-primary)">{{ revealSeconds }}<span style="font-size:var(--fs-0);color:var(--text-secondary)"> s</span></p>
+        <div aria-hidden="true" style="height:1px;background:var(--border-subtle);position:relative">
+          <div style="{{ scoreBarStyle }}position:absolute;left:0;top:0;height:1px;background:var(--eg-accent);transition:width var(--dur-rest) var(--ease-settle)"></div>
+        </div>
+        <p style="margin:0;font-family:var(--font-body);font-size:var(--fs-0);line-height:var(--lh-body);color:var(--text-secondary)">{{ revealNote }}</p>
+        <div style="display:flex;justify-content:flex-end">
+          <x-import component-from-global-scope="SoftNoirDesignSystem_aee1d5.Button" variant="signal" onClick="{{ handleContinue }}" hint-size="auto,44px">Kontynuuj</x-import>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;onExit&quot;: {&quot;editor&quot;: null, &quot;tsType&quot;: &quot;(r: {comfort_ms: number, phase: string, theme: string, state: string}) =&gt; void&quot;},
+  &quot;timeScale&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: 1, &quot;options&quot;: [1, 4, 10], &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Rytuał&quot;},
+  &quot;reducedMotion&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Rytuał&quot;}
+}">
+const PHI = 1.618033988749895;
+const T = { golden: 1618, phi_sq: 2618, phi_3: 4236, ceremony: 6854 };
+const PH = [['entry', 6472], ['deepening', 10472], ['silence', 32360], ['return', 10696]];
+const TOTAL = 60000;
+const BOUND = PH.reduce((a, [, d]) => { a.push((a[a.length - 1] || 0) + d); return a; }, []);
+const LABEL = { entry: 'WEJŚCIE', deepening: 'GŁĘBIENIE', silence: 'CISZA', return: 'POWRÓT' };
+
+const THEMES = {
+  ember:    { name: 'Ember Silence',  accent: '#D8A45A', texture: 'url(#eg-grain)', audio: 'BROWN 60–120 HZ', haptic: 'IMPULS 34 MS' },
+  graphite: { name: 'Graphite Drift', accent: '#6B8F96', texture: 'url(#eg-band)',  audio: 'PINK · PAN 16 180 MS', haptic: 'FALA 2×' },
+  midnight: { name: 'Midnight Paper', accent: '#C49A6A', texture: 'url(#eg-paper)', audio: 'ROOM TONE · TAPE', haptic: 'OPAD 60 MS' },
+  ion:      { name: 'Ion Haze',       accent: '#8EC0C7', texture: 'url(#eg-haze)',  audio: 'AIR HUM', haptic: 'KASKADA φ' },
+};
+const STATES = ['flow', 'focus', 'calm'];
+const GAIN = { ember: 0.30, graphite: 0.25, midnight: 0.20, ion: 0.15 };
+const MASTER_MAX = 0.25;
+const STATE_GAIN = { flow: 1.272, focus: 1, calm: 0.618 };
+/* Faza → mnożnik poziomu audio: wejście narasta, cisza schodzi do φ⁻², powrót wraca */
+const PHASE_GAIN = { entry: 1, deepening: 0.618, silence: 0.382, return: 0.618 };
+/* Haptyka per motyw (ms) */
+const HAPTIC = {
+  ember: [34],
+  graphite: [34, 89, 34],
+  midnight: [60],
+  ion: [55, 34, 34, 21, 21, 13, 13, 8],
+};
+
+function particles() {
+  const out = [];
+  for (let i = 0; i < 21; i++) {
+    const a = i * 2 * Math.PI / (PHI * PHI);
+    const r = 0.13 + 0.382 * Math.sqrt((i + 0.5) / 21);
+    out.push({ style: `left:${(61.8 + Math.cos(a) * r * 61.8).toFixed(3)}%;top:${(38.2 + Math.sin(a) * r * 61.8).toFixed(3)}%;animation-duration:${T.phi_3 + ((i * 13) % 8) * 618}ms;animation-delay:${-((i * 21) % 13) * 618}ms;` });
+  }
+  return out;
+}
+function spiralPath() {
+  const pts = [];
+  for (let th = 0; th <= Math.PI * 7; th += 0.1) {
+    const r = 2.6 * Math.pow(PHI, (2 * th) / Math.PI);
+    pts.push(`${(r * Math.cos(th)).toFixed(2)},${(r * Math.sin(th)).toFixed(2)}`);
+  }
+  return 'M' + pts.join(' L');
+}
+const SPIRAL_D = spiralPath();
+
+/* Audio engine — WebAudio, start only from gesture, master ≤ 0.25, fades φ */
+function makeAudio() {
+  let ctx, master, nodes = {}, current = null, running = false;
+  function ensure() {
+    if (ctx) return;
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+  }
+  function buffer(kind) {
+    const len = 4 * ctx.sampleRate, buf = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let ch = 0; ch < 2; ch++) {
+      const d = buf.getChannelData(ch); let last = 0, b0 = 0, b1 = 0, b2 = 0;
+      for (let i = 0; i < len; i++) {
+        const w = Math.random() * 2 - 1;
+        if (kind === 'brown') { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; }
+        else { b0 = 0.99765 * b0 + w * 0.0990460; b1 = 0.96300 * b1 + w * 0.2962930; b2 = 0.57000 * b2 + w * 1.0526913; d[i] = (b0 + b1 + b2 + w * 0.1848) * 0.11; }
+      }
+    }
+    return buf;
+  }
+  function build(id) {
+    const g = ctx.createGain(); g.gain.value = 0; g.connect(master);
+    const src = ctx.createBufferSource(); src.buffer = buffer(id === 'ember' ? 'brown' : 'pink'); src.loop = true;
+    if (id === 'ember') {
+      /* warm brown, 60–120 Hz emphasis */
+      const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2000; lp.Q.value = 0.618;
+      const pk = ctx.createBiquadFilter(); pk.type = 'peaking'; pk.frequency.value = 89; pk.Q.value = 1.2; pk.gain.value = 3;
+      src.connect(lp); lp.connect(pk); pk.connect(g);
+    } else if (id === 'graphite') {
+      const pan = ctx.createStereoPanner();
+      const lfo = ctx.createOscillator(); lfo.frequency.value = 1000 / 16180;
+      const lfoG = ctx.createGain(); lfoG.gain.value = 0.618;
+      lfo.connect(lfoG); lfoG.connect(pan.pan); lfo.start();
+      src.connect(pan); pan.connect(g);
+    } else if (id === 'midnight') {
+      /* room tone 80–400 Hz + tape hiss band ~ 6.8 kHz, very low */
+      const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 179; bp.Q.value = 1.2;
+      const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 400;
+      src.connect(bp); bp.connect(lp); lp.connect(g);
+      const hiss = ctx.createBufferSource(); hiss.buffer = buffer('pink'); hiss.loop = true;
+      const hp = ctx.createBiquadFilter(); hp.type = 'bandpass'; hp.frequency.value = 6854; hp.Q.value = 0.618;
+      const hg = ctx.createGain(); hg.gain.value = 0.0618;
+      hiss.connect(hp); hp.connect(hg); hg.connect(g); hiss.start();
+    } else {
+      const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 346; bp.Q.value = 1.2;
+      const hum = ctx.createOscillator(); hum.type = 'sine'; hum.frequency.value = 100;
+      const humG = ctx.createGain(); humG.gain.value = 0.0126;
+      hum.connect(humG); humG.connect(g); hum.start();
+      src.connect(bp); bp.connect(g);
+    }
+    src.start();
+    return { gain: g };
+  }
+  return {
+    start(id, level) {
+      ensure(); ctx.resume(); running = true;
+      master.gain.setTargetAtTime(MASTER_MAX, ctx.currentTime, 1.618 / 3);
+      this.setTheme(id, level);
+    },
+    stop() { if (!ctx) return; running = false; master.gain.setTargetAtTime(0, ctx.currentTime, 0.618 / 3); },
+    setTheme(id, level) {
+      if (!running) return;
+      const t = ctx.currentTime;
+      if (current && current !== id && nodes[current]) nodes[current].gain.gain.setTargetAtTime(0, t, 2.618 / 3);
+      if (!nodes[id]) nodes[id] = build(id);
+      current = id;
+      this.setLevel(level);
+    },
+    setLevel(level) {
+      if (!running || !current) return;
+      nodes[current].gain.gain.setTargetAtTime(Math.min(1, GAIN[current] * level), ctx.currentTime, 1.618 / 3);
+    },
+    get running() { return running; },
+  };
+}
+
+class Component extends DCLogic {
+  state = { theme: 'ember', jitai: 'focus', audioOn: true, entered: false, elapsed: 0, exit: null, done: false };
+  _particles = particles();
+  _audio = makeAudio();
+  _lastPhase = null;
+
+  _phaseAt(el) { for (let i = 0; i < PH.length; i++) if (el < BOUND[i]) return PH[i][0]; return 'return'; }
+  _haptic(id) { if (navigator.vibrate) navigator.vibrate(HAPTIC[id]); }
+  _level(ph) { return STATE_GAIN[this.state.jitai] * PHASE_GAIN[ph]; }
+
+  _run() {
+    this._start = performance.now(); this._spun = 0; this._lastT = 0; this._lastPhase = null;
+    const loop = (now) => {
+      if (this.state.done) return;
+      const el = Math.min((now - this._start) * (this.props.timeScale ?? 1), TOTAL);
+      const ph = this._phaseAt(el);
+      if (ph === 'deepening' || ph === 'return') this._spun += el - this._lastT;
+      this._lastT = el;
+      if (ph !== this._lastPhase) {
+        this._lastPhase = ph;
+        this._audio.setLevel(this._level(ph));
+        if (ph !== 'entry') this._haptic(this.state.theme);
+      }
+      if (el >= TOTAL) { this._finish(TOTAL, 'return'); return; }
+      this.setState({ elapsed: el });
+      this._raf = requestAnimationFrame(loop);
+    };
+    this._raf = requestAnimationFrame(loop);
+  }
+  _finish(ms, ph) {
+    cancelAnimationFrame(this._raf);
+    this._audio.stop();
+    this._haptic(this.state.theme);
+    this.setState({ elapsed: ms, exit: ms, done: true });
+    if (this.props.onExit) this.props.onExit({ comfort_ms: ms, phase: ph, theme: this.state.theme, state: this.state.jitai });
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); this._audio.stop(); }
+
+  handleEnter = () => {
+    if (this.state.audioOn) this._audio.start(this.state.theme, this._level('entry'));
+    this._haptic(this.state.theme);
+    this.setState({ entered: true, elapsed: 0, exit: null, done: false }, () => this._run());
+  };
+  handleTouch = () => {
+    if (!this.state.entered || this.state.done) return;
+    const ph = this._phaseAt(this.state.elapsed);
+    if (ph !== 'silence' && ph !== 'return') return;
+    this._finish(Math.round(this.state.elapsed), ph);
+  };
+  handleContinue = () => this.setState({ entered: false, elapsed: 0, exit: null, done: false });
+  toggleAudio = () => this.setState(s => ({ audioOn: !s.audioOn }));
+  pickTheme = (id) => () => { this.setState({ theme: id }); this._haptic(id); };
+  pickState = (id) => () => this.setState({ jitai: id });
+
+  renderVals() {
+    const { theme, jitai, audioOn, entered, elapsed, exit, done } = this.state;
+    const th = THEMES[theme];
+    const ph = entered ? this._phaseAt(elapsed) : 'entry';
+    const reduced = (this.props.reducedMotion ?? false) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const idx = PH.findIndex(p => p[0] === ph);
+    const inPhase = entered ? elapsed - (BOUND[idx] - PH[idx][1]) : 0;
+
+    const deep = entered ? { entry: 0, deepening: 0.382, silence: 0.618, return: 0.236 }[ph] : 0;
+    const formOp = entered ? { entry: Math.min(1, inPhase / T.golden), deepening: 0.52, silence: 0.22, return: 1 }[ph] : 0;
+    const blur = { entry: 0, deepening: 1, silence: 4, return: 0 }[ph];
+    const spiralOp = entered ? { entry: 0, deepening: 0.0618, silence: 0.0382, return: 0.0618 }[ph] : 0;
+    const partOp = entered ? { entry: 0, deepening: 1, silence: 0.382, return: 0.618 }[ph] : 0;
+    const texOp = { entry: 0.0382, deepening: 0.0618, silence: 0.0618, return: 0.0382 }[ph];
+
+    let text = '', textOp = 0;
+    if (entered && ph === 'entry') { text = 'Pozwól sobie na ciszę'; textOp = Math.max(0, Math.min(1, (inPhase - T.golden) / T.golden)); }
+    if (entered && ph === 'return') { text = 'Wracasz'; textOp = Math.min(1, inPhase / T.phi_3) * 0.618; }
+
+    const spiral = React.createElement('svg', { width: 1400, height: 1400, viewBox: '-700 -700 1400 1400', style: { position: 'absolute', left: -700, top: -700, transform: `rotate(${((this._spun || 0) / 1000).toFixed(2)}deg)`, overflow: 'visible' } },
+      React.createElement('path', { d: SPIRAL_D, fill: 'none', stroke: th.accent, strokeWidth: 1 }));
+
+    const exitMs = exit ?? 0;
+    return {
+      theme, jitai,
+      themeLabel: th.name.toUpperCase().replace(' ', '_'),
+      audioLabel: audioOn ? `AUDIO ${th.audio}` : 'AUDIO OFF',
+      hapticLabel: `HAPTYKA ${th.haptic}`,
+      stateLabel: jitai.toUpperCase(),
+      hazeStyle: `opacity:${theme === 'ion' || theme === 'graphite' ? 1 : 0};`,
+      deepStyle: `opacity:${deep};`,
+      vignetteStyle: `opacity:${entered && ph !== 'entry' ? 1 : 0};`,
+      textureFilter: th.texture,
+      textureStyle: `opacity:${texOp};`,
+      spiralStyle: `opacity:${spiralOp};`,
+      particlesStyle: `opacity:${partOp};`,
+      particles: this._particles,
+      spiral,
+      formStyle: `opacity:${formOp.toFixed(3)};filter:blur(${blur}px);animation-name:${reduced ? 'eg-breath-reduced' : 'eg-breath'};animation-play-state:${entered && !done ? 'running' : 'paused'};`,
+      phaseText: text,
+      textStyle: `opacity:${textOp.toFixed(3)};transition:opacity ${T.golden}ms var(--ease-phi);`,
+      phiRatio: (elapsed / T.golden).toFixed(3),
+      elapsedLabel: `${String(Math.round(elapsed)).padStart(5, '0')} MS`,
+      phaseLabel: entered ? LABEL[ph] : 'BRAMA',
+      touchStyle: `pointer-events:${entered && !done ? 'auto' : 'none'};`,
+      showGate: !entered,
+      showReveal: done,
+      audioToggleLabel: audioOn ? 'Dźwięk: włączony' : 'Dźwięk: wyłączony',
+      themeOptions: Object.keys(THEMES).map(id => ({
+        name: THEMES[id].name,
+        pick: this.pickTheme(id),
+        style: `border:1px solid ${id === theme ? THEMES[id].accent : 'var(--border-subtle)'};`,
+        dot: `background:${THEMES[id].accent};`,
+      })),
+      stateOptions: STATES.map(id => ({ name: id.toUpperCase(), pick: this.pickState(id), style: `border:1px solid ${id === jitai ? th.accent : 'var(--border-subtle)'};` })),
+      revealLabel: exit >= TOTAL ? 'ENTRY_GATE · PEŁNY CYKL' : `COMFORT_MS ${exitMs}`,
+      revealSeconds: (exitMs / 1000).toFixed(1),
+      scoreBarStyle: `width:${((exitMs / TOTAL) * 100).toFixed(1)}%;`,
+      revealNote: exit >= TOTAL ? 'Cykl zamknął się sam. Możesz powtórzyć albo zostawić to tak.' : 'Wyjście zapisane. Możesz powtórzyć albo zostawić to tak.',
+      handleEnter: this.handleEnter, handleTouch: this.handleTouch, handleContinue: this.handleContinue, toggleAudio: this.toggleAudio,
+    };
+  }
+}
+</script>
+</body>
+</html>
