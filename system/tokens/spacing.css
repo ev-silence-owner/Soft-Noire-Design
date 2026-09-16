@@ -1,0 +1,55 @@
+/* Two namespaced scales (NC-090). phi^n rem for rhythm; Fibonacci px for geometry. */
+:root{
+  --space-phi-n4:0.146rem;
+  --space-phi-n3:0.236rem;
+  --space-phi-n2:0.382rem;
+  --space-phi-n1:0.618rem;
+  --space-phi-0:1rem;
+  --space-phi-1:1.618rem;
+  --space-phi-2:2.618rem;
+  --space-phi-3:4.236rem;
+  --space-phi-4:6.854rem;
+  --space-phi-5:11.090rem;
+
+  --space-fib-4:3px;
+  --space-fib-5:5px;
+  --space-fib-6:8px;
+  --space-fib-7:13px;
+  --space-fib-8:21px;
+  --space-fib-9:34px;
+  --space-fib-10:55px;
+  --space-fib-11:89px;
+  --space-fib-12:144px;
+  --space-fib-13:233px;
+
+  --space-safe-area:max(var(--space-phi-0),env(safe-area-inset-bottom));
+  --touch-min:44px;
+}
+
+/* RADIUS — L9 (patternlens-tokens NC-120). Fibonacci px. */
+:root{
+  --radius-xs:var(--space-fib-4); /* @kind other */ /* 3px */
+  --radius-sm:var(--space-fib-5); /* @kind other */ /* 5px */
+  --radius-md:var(--space-fib-6); /* @kind other */ /* 8px — default */
+  --radius-lg:var(--space-fib-7); /* @kind other */ /* 13px — karty */
+  --radius-xl:var(--space-fib-8); /* @kind other */ /* 21px — panele */
+  --radius-2xl:var(--space-fib-9); /* @kind other */ /* 34px — arkusze */
+  --radius-full:9999px; /* @kind other */
+}
+
+/* SHADOW — L10 (patternlens-tokens NC-120). */
+:root{
+  --shadow-none:none; /* @kind other */
+  --shadow-xs:0 1px 2px 0 rgb(0 0 0/.30); /* @kind other */
+  --shadow-sm:0 var(--space-fib-4) var(--space-fib-6) -1px rgb(0 0 0/.35); /* @kind other */
+  --shadow-md:0 var(--space-fib-5) var(--space-fib-7) -2px rgb(0 0 0/.40); /* @kind other */
+  --shadow-lg:0 var(--space-fib-6) var(--space-fib-8) -4px rgb(0 0 0/.45); /* @kind other */
+  --shadow-xl:0 var(--space-fib-7) var(--space-fib-9) -5px rgb(0 0 0/.50); /* @kind other */
+  --glow-accent:0 0 var(--space-fib-8) 0 color-mix(in srgb,var(--accent-brand) 25%,transparent); /* @kind other */
+}
+
+/* STATE TOKENS — L6 (patternlens-tokens). data-state=flow|focus|calm|rest. */
+[data-state="flow"]{--state-border:color-mix(in srgb,var(--accent-theme) 38%,transparent);--state-accent:var(--accent-theme)}
+[data-state="focus"]{--state-border:var(--accent-brand);--state-accent:var(--accent-brand)}
+[data-state="calm"]{--state-border:var(--border-subtle);--state-accent:var(--text-muted)}
+[data-state="rest"]{--state-border:transparent;--state-accent:var(--text-disabled)}

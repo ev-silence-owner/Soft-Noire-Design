@@ -1,0 +1,11 @@
+/* Golden split + the only three legal breakpoints (others require an ADR). */
+:root{
+  --phi-content:61.8%; /* @kind other */
+  --phi-breath:38.2%; /* @kind other */
+  --golden-point-y:38.2vh; /* @kind other */
+  --golden-point-x:61.8vw; /* @kind other */
+  --bp-compact:618px; /* @kind other */
+  --bp-medium:1000px; /* @kind other */
+  --bp-wide:1618px; /* @kind other */
+  --form-ratio:1 / 1.618; /* @kind other */
+}

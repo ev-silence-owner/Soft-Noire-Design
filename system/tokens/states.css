@@ -1,0 +1,36 @@
+/* STATE TOKENS — L6 (patternlens-tokens). data-state=flow|focus|calm|rest.
+   SYNC 2026-08-31: added rest state + full glow/surface refs from production. */
+[data-state="calm"]{--state-brightness:0.95; /* @kind other */--state-sat:0.9; /* @kind other */--motion-scale-max:1.005; /* @kind other */--breath-cycle:var(--breath-calm-cycle);--content-density:38.2%;--state-surface:var(--surface-base);--state-border:var(--border-subtle);--state-accent:var(--text-muted);--state-glow:none; /* @kind other */--state-text:var(--text-secondary)}
+[data-state="focus"]{--state-brightness:1; /* @kind other */--state-sat:1; /* @kind other */--motion-scale-max:1.01; /* @kind other */--breath-cycle:var(--breath-focus-cycle);--content-density:50%;--state-surface:var(--surface-elevated);--state-border:var(--accent-gold);--state-accent:var(--accent-gold);--state-glow:0 0 0 2px var(--accent-gold); /* @kind other */--state-text:var(--text-primary)}
+[data-state="flow"]{--state-brightness:1.05; /* @kind other */--state-sat:1.05; /* @kind other */--motion-scale-max:1.02; /* @kind other */--breath-cycle:var(--breath-flow-cycle);--content-density:61.8%;--state-surface:var(--surface-raised);--state-border:color-mix(in srgb,var(--lens-a) 38%,transparent);--state-accent:var(--lens-a);--state-glow:0 0 0 1px color-mix(in srgb,var(--lens-a) 20%,transparent),0 0 13px 0 color-mix(in srgb,var(--lens-a) 15%,transparent); /* @kind other */--state-text:var(--text-primary)}
+[data-state="rest"]{--state-brightness:0.85; /* @kind other */--state-sat:0.7; /* @kind other */--motion-scale-max:1.0; /* @kind other */--breath-cycle:var(--breath-calm-cycle);--content-density:0%;--state-surface:var(--surface-base);--state-border:transparent;--state-accent:var(--text-muted);--state-glow:none; /* @kind other */--state-text:var(--text-muted)}
+:root{--state-brightness:1; /* @kind other */--state-sat:1; /* @kind other */--motion-scale-max:1.01; /* @kind other */--breath-cycle:var(--breath-focus-cycle);--content-density:50%}
+
+/* VISUAL MODE GUARDS — L7 (patternlens-tokens). data-visual-mode=still|breathing|drift|pulse.
+   SYNC 2026-08-31: added from production patternlens-tokens L7. */
+[data-visual-mode="still"] *{animation:none !important;transition-duration:0ms !important}
+[data-visual-mode="breathing"] .phi-breath-surface{animation:phi-breath-surface var(--breath-focus-cycle) var(--ease-breath) infinite}
+[data-visual-mode="drift"] .phi-breath-surface{animation:phi-drift var(--dur-ceremony) var(--ease-breath) infinite}
+[data-visual-mode="pulse"] .phi-breath-surface{animation:zero-pulse var(--dur-golden) var(--ease-phi) infinite}
+
+@keyframes phi-breath-surface{0%,100%{opacity:.6;transform:scale(.97)}38.2%{opacity:1;transform:scale(1)}61.8%{opacity:1;transform:scale(1)}}
+@keyframes phi-drift{0%,100%{opacity:.4;transform:translateY(0)}50%{opacity:.8;transform:translateY(-3px)}}
+
+/* GS PHASE TOKENS — L8 (patternlens-tokens). Timing as ratio of session duration.
+   SYNC 2026-08-31. */
+:root{
+  --gs-phase-entry-ratio:0.082; /* @kind other */
+  --gs-phase-deepen-ratio:0.236; /* @kind other */
+  --gs-phase-silence-ratio:0.500; /* @kind other */
+  --gs-phase-return-ratio:0.182; /* @kind other */
+  --gs-entry-duration:var(--dur-breathe); /* @kind other */ /* 2618ms */
+  --gs-entry-ease:var(--ease-emerge); /* @kind other */
+  --gs-deepen-transition:var(--dur-rest); /* @kind other */ /* 4236ms */
+  --gs-deepen-ease:var(--ease-breath); /* @kind other */
+  --gs-return-duration:var(--dur-golden); /* @kind other */ /* 1618ms */
+  --gs-return-ease:var(--ease-settle); /* @kind other */
+}
+
+@keyframes gs-entry{from{opacity:0;filter:blur(13px)}to{opacity:1;filter:blur(0)}}
+@keyframes gs-deepen{from{opacity:1;transform:scale(1)}to{opacity:.6;transform:scale(.99)}}
+@keyframes gs-return{from{opacity:.6;filter:blur(5px)}to{opacity:1;filter:blur(0)}}

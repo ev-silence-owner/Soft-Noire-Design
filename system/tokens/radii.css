@@ -1,0 +1,10 @@
+/* ND-friendly: brak ostrych narozników. Radius rytualu = phi^2 x 8px = 21px = F(8). */
+:root{
+  --radius-s1:4px;
+  --radius-s2:8px;
+  --radius-s3:12px;
+  --radius-s4:18px;
+  --radius-ritual:21px;
+  --radius-form:var(--radius-ritual);
+  --radius-pill:999px;
+}

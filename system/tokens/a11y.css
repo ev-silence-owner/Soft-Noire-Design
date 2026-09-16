@@ -1,0 +1,16 @@
+/* ND-first sensory contract. Violation = FAIL gate #8 (adr-002-compliance) = STOP release. */
+:focus-visible{outline:2px solid var(--accent-brand);outline-offset:2px}
+
+/* REDUCED-MOTION HARD LAW — 0.01ms, opacity-only transitions. Non-negotiable. */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+/* Runtime toggle, independent of the media query (gate #8 requires both). */
+[data-motion="off"] *,[data-motion="off"] *::before,[data-motion="off"] *::after{
+  animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;
+}

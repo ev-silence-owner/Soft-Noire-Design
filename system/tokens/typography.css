@@ -1,0 +1,34 @@
+/* Type scale 16px x phi^n. Body minimum 16px, line-height 1.618 (ND contract). */
+:root{
+  --font-display:"STIX Two Text",Georgia,serif;
+  --font-body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  --font-mono:"IBM Plex Mono","SF Mono",ui-monospace,monospace;
+
+  --fs-n1:9.889px;   /* 16 x phi^-1 rounded to source value */
+  --fs-0:16px;       /* base */
+  --fs-1:25.888px;   /* 16 x phi */
+  --fs-2:41.887px;   /* 16 x phi^2 */
+  --fs-3:67.773px;   /* 16 x phi^3 */
+  --fs-utility:13px; /* @kind other */ /* F(7) — mono labels, HUD */
+
+  --lh-0:25.888px; /* @kind other */
+  --lh-1:41.887px; /* @kind other */
+  --lh-2:67.773px; /* @kind other */
+  --lh-body:1.618; /* @kind other */
+  --lh-tight:1.272; /* @kind other */
+
+  --ls-quiet:0.02em; /* @kind other */
+  --ls-ritual:0.0382em; /* @kind other */
+  --ls-label:0.12em; /* @kind other */
+  --ls-hud:0.18em; /* @kind other */
+
+  --fw-light:300; /* @kind other */
+  --fw-regular:400; /* @kind other */
+  --fw-medium:500; /* @kind other */
+
+  /* semantic */
+  --text-display:var(--fs-2); /* @kind other */
+  --text-title:var(--fs-1); /* @kind other */
+  --text-copy:var(--fs-0); /* @kind other */
+  --text-hud:var(--fs-utility); /* @kind other */
+}
