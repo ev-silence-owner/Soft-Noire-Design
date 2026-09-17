@@ -1,0 +1,751 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "animations-v3.jsx",
+              "assets/**",
+              "audio/**",
+              "components/core/**",
+              "components/dashboard/**",
+              "components/ritual/**",
+              "components/signals/**",
+              "components/status/**",
+              "prototypes/pulse-tap-surface/**",
+              "tweaks-panel.jsx",
+              "ui_kits/dashboard/**",
+              "ui_kits/patternlens-app/**",
+              "ui_kits/patternlens-onboarding/**",
+              "ui_kits/swiat-w/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:STIX Two Text|IBM Plex Sans|IBM Plex Mono))/i]",
+        "message": "Font not provided by the design system. Available: STIX Two Text, IBM Plex Sans, IBM Plex Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BareNumbers'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|key|ref|className|style|children)$/]",
+        "message": "<BareNumbers> doesn't accept that prop. Declared props: items."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BreathLine'] > JSXAttribute > JSXIdentifier[name!=/^(?:phase|reducedMotion|key|ref|className|style|children)$/]",
+        "message": "<BreathLine> doesn't accept that prop. Declared props: phase, reducedMotion."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='BreathLine'] > JSXAttribute[name.name='phase'] > Literal[value!=/^(?:entry|deepening|silence|return)$/]",
+        "message": "<BreathLine> phase must be one of 'entry' | 'deepening' | 'silence' | 'return'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|full|disabled|children|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, full, disabled, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:signal|quiet|bare)$/]",
+        "message": "<Button> variant must be one of 'signal' | 'quiet' | 'bare'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ChoiceCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|meta|caption|selected|aspect|onClick|key|ref|className|style|children)$/]",
+        "message": "<ChoiceCard> doesn't accept that prop. Declared props: title, meta, caption, selected, aspect, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ClusterPulse'] > JSXAttribute > JSXIdentifier[name!=/^(?:clusters|revealed|onReveal|key|ref|className|style|children)$/]",
+        "message": "<ClusterPulse> doesn't accept that prop. Declared props: clusters, revealed, onReveal."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ConsentRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:flag|label|description|checked|onChange|key|ref|className|style|children)$/]",
+        "message": "<ConsentRow> doesn't accept that prop. Declared props: flag, label, description, checked, onChange."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CrisisBanner'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|lines|onDismiss|key|ref|className|style|children)$/]",
+        "message": "<CrisisBanner> doesn't accept that prop. Declared props: title, lines, onDismiss."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GoldenClock'] > JSXAttribute > JSXIdentifier[name!=/^(?:progress|markers|label|key|ref|className|style|children)$/]",
+        "message": "<GoldenClock> doesn't accept that prop. Declared props: progress, markers, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GoldenRectangle'] > JSXAttribute > JSXIdentifier[name!=/^(?:width|breathing|glow|cycle|key|ref|className|style|children)$/]",
+        "message": "<GoldenRectangle> doesn't accept that prop. Declared props: width, breathing, glow, cycle."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HealthBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:status|score|label|size|key|ref|className|style|children)$/]",
+        "message": "<HealthBadge> doesn't accept that prop. Declared props: status, score, label, size."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HealthBadge'] > JSXAttribute[name.name='status'] > Literal[value!=/^(?:adopted|in-progress|not-adopted|deprecated|at-risk)$/]",
+        "message": "<HealthBadge> status must be one of 'adopted' | 'in-progress' | 'not-adopted' | 'deprecated' | 'at-risk'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HealthBadge'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<HealthBadge> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HealthGridCell'] > JSXAttribute > JSXIdentifier[name!=/^(?:pattern|team|coverage|interpretation|status|onClick|key|ref|className|style|children)$/]",
+        "message": "<HealthGridCell> doesn't accept that prop. Declared props: pattern, team, coverage, interpretation, status, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HealthGridCell'] > JSXAttribute[name.name='status'] > Literal[value!=/^(?:adopted|in-progress|not-adopted|deprecated|at-risk)$/]",
+        "message": "<HealthGridCell> status must be one of 'adopted' | 'in-progress' | 'not-adopted' | 'deprecated' | 'at-risk'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InsightCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:observation|option|action|onAction|key|ref|className|style|children)$/]",
+        "message": "<InsightCard> doesn't accept that prop. Declared props: observation, option, action, onAction."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IntentSelector'] > JSXAttribute > JSXIdentifier[name!=/^(?:onIntent|locked|key|ref|className|style|children)$/]",
+        "message": "<IntentSelector> doesn't accept that prop. Declared props: onIntent, locked."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NextWindowHint'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|value|key|ref|className|style|children)$/]",
+        "message": "<NextWindowHint> doesn't accept that prop. Declared props: label, value."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ObservationCount'] > JSXAttribute > JSXIdentifier[name!=/^(?:count|label|empty|key|ref|className|style|children)$/]",
+        "message": "<ObservationCount> doesn't accept that prop. Declared props: count, label, empty."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PriceRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:price|period|note|autoRenew|key|ref|className|style|children)$/]",
+        "message": "<PriceRow> doesn't accept that prop. Declared props: price, period, note, autoRenew."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PulseTapSurface'] > JSXAttribute > JSXIdentifier[name!=/^(?:taps|gateOpen|elapsedMs|mfiState|mfi|capRatio|onTap|onEmergency|key|ref|className|style|children)$/]",
+        "message": "<PulseTapSurface> doesn't accept that prop. Declared props: taps, gateOpen, elapsedMs, mfiState, mfi, capRatio, onTap, onEmergency."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='QuietCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|value|unit|note|breathing|key|ref|className|style|children)$/]",
+        "message": "<QuietCard> doesn't accept that prop. Declared props: label, value, unit, note, breathing."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RhythmLine'] > JSXAttribute > JSXIdentifier[name!=/^(?:points|label|key|ref|className|style|children)$/]",
+        "message": "<RhythmLine> doesn't accept that prop. Declared props: points, label."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SeedIndicator'] > JSXAttribute > JSXIdentifier[name!=/^(?:hash|level|ritual|key|ref|className|style|children)$/]",
+        "message": "<SeedIndicator> doesn't accept that prop. Declared props: hash, level, ritual."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SeedIndicator'] > JSXAttribute[name.name='ritual'] > Literal[value!=/^(?:open|closed)$/]",
+        "message": "<SeedIndicator> ritual must be one of 'open' | 'closed'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Slider'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|min|max|step|label|suffix|onChange|key|ref|className|style|children)$/]",
+        "message": "<Slider> doesn't accept that prop. Declared props: value, min, max, step, label, suffix, onChange."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SummaryRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|compressed|key|ref|className|style|children)$/]",
+        "message": "<SummaryRow> doesn't accept that prop. Declared props: items, compressed."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Switch'] > JSXAttribute > JSXIdentifier[name!=/^(?:checked|label|description|onChange|key|ref|className|style|children)$/]",
+        "message": "<Switch> doesn't accept that prop. Declared props: checked, label, description, onChange."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SyncBadge'] > JSXAttribute > JSXIdentifier[name!=/^(?:status|detail|key|ref|className|style|children)$/]",
+        "message": "<SyncBadge> doesn't accept that prop. Declared props: status, detail."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SyncBadge'] > JSXAttribute[name.name='status'] > Literal[value!=/^(?:ok|syncing|pending)$/]",
+        "message": "<SyncBadge> status must be one of 'ok' | 'syncing' | 'pending'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ViewState'] > JSXAttribute > JSXIdentifier[name!=/^(?:kind|title|message|action|onAction|key|ref|className|style|children)$/]",
+        "message": "<ViewState> doesn't accept that prop. Declared props: kind, title, message, action, onAction."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ViewState'] > JSXAttribute[name.name='kind'] > Literal[value!=/^(?:empty|loading|error|no-data|overloaded)$/]",
+        "message": "<ViewState> kind must be one of 'empty' | 'loading' | 'error' | 'no-data' | 'overloaded'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "BareNumbers": {
+        "replaces": []
+      },
+      "BreathLine": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "ChoiceCard": {
+        "replaces": []
+      },
+      "ClusterPulse": {
+        "replaces": []
+      },
+      "ConsentRow": {
+        "replaces": []
+      },
+      "CrisisBanner": {
+        "replaces": []
+      },
+      "GoldenClock": {
+        "replaces": []
+      },
+      "GoldenRectangle": {
+        "replaces": []
+      },
+      "HealthBadge": {
+        "replaces": []
+      },
+      "HealthGridCell": {
+        "replaces": []
+      },
+      "InsightCard": {
+        "replaces": []
+      },
+      "IntentSelector": {
+        "replaces": []
+      },
+      "NextWindowHint": {
+        "replaces": []
+      },
+      "ObservationCount": {
+        "replaces": []
+      },
+      "PriceRow": {
+        "replaces": []
+      },
+      "PulseTapSurface": {
+        "replaces": []
+      },
+      "QuietCard": {
+        "replaces": []
+      },
+      "RhythmLine": {
+        "replaces": []
+      },
+      "SeedIndicator": {
+        "replaces": []
+      },
+      "Slider": {
+        "replaces": []
+      },
+      "SummaryRow": {
+        "replaces": []
+      },
+      "Switch": {
+        "replaces": []
+      },
+      "SyncBadge": {
+        "replaces": []
+      },
+      "ViewState": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent-brand",
+      "--accent-gold",
+      "--accent-gold-dim",
+      "--accent-gold-glow",
+      "--accent-soft",
+      "--accent-teal",
+      "--accent-theme",
+      "--audio-crossfade",
+      "--audio-ember-lowpass",
+      "--audio-ember-q",
+      "--audio-ember-rolloff",
+      "--audio-fade-in",
+      "--audio-fade-out",
+      "--audio-gain-ember",
+      "--audio-gain-graphite",
+      "--audio-gain-ion",
+      "--audio-gain-midnight",
+      "--audio-graphite-slope",
+      "--audio-ion-bp-high",
+      "--audio-ion-bp-low",
+      "--audio-ion-sub",
+      "--audio-level-0",
+      "--audio-level-1",
+      "--audio-level-2",
+      "--audio-level-3",
+      "--audio-master-max",
+      "--audio-midnight-bp-high",
+      "--audio-midnight-bp-low",
+      "--audio-midnight-q",
+      "--audio-pan-period",
+      "--audio-pan-width",
+      "--audio-transient-max-db",
+      "--bg-app",
+      "--border-gold",
+      "--border-medium",
+      "--border-strong",
+      "--border-subtle",
+      "--bp-compact",
+      "--bp-medium",
+      "--bp-wide",
+      "--breath-calm-cycle",
+      "--breath-calm-hold",
+      "--breath-calm-in",
+      "--breath-calm-out",
+      "--breath-cycle",
+      "--breath-flow-cycle",
+      "--breath-flow-hold",
+      "--breath-flow-in",
+      "--breath-flow-out",
+      "--breath-focus-cycle",
+      "--breath-focus-hold",
+      "--breath-focus-in",
+      "--breath-focus-out",
+      "--breath-hold-ms",
+      "--breath-hold-ratio",
+      "--breath-in-ms",
+      "--breath-in-ratio",
+      "--breath-out-ms",
+      "--breath-out-ratio",
+      "--breath-ratio",
+      "--color-accent",
+      "--color-surface",
+      "--color-text",
+      "--content-density",
+      "--content-ratio",
+      "--dur-breathe",
+      "--dur-ceremony",
+      "--dur-golden",
+      "--dur-instant",
+      "--dur-long",
+      "--dur-micro",
+      "--dur-moderate",
+      "--dur-rest",
+      "--dur-slow",
+      "--dur-standard",
+      "--dur-swift",
+      "--ease-breath",
+      "--ease-emerge",
+      "--ease-golden",
+      "--ease-phi",
+      "--ease-phi-accel",
+      "--ease-phi-decel",
+      "--ease-settle",
+      "--fib-reset-threshold",
+      "--fib-tap-1",
+      "--fib-tap-2",
+      "--fib-tap-3",
+      "--fib-tap-4",
+      "--fib-tap-5",
+      "--fib-tap-6",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--form-ratio",
+      "--fs-0",
+      "--fs-1",
+      "--fs-2",
+      "--fs-3",
+      "--fs-n1",
+      "--fs-utility",
+      "--fw-light",
+      "--fw-medium",
+      "--fw-regular",
+      "--glow-accent",
+      "--glow-lens-a",
+      "--glow-lens-b",
+      "--gold-glow-base",
+      "--gold-glow-peak",
+      "--golden-point-x",
+      "--golden-point-y",
+      "--gs-deepen-ease",
+      "--gs-deepen-transition",
+      "--gs-entry-duration",
+      "--gs-entry-ease",
+      "--gs-phase-deepen-ratio",
+      "--gs-phase-entry-ratio",
+      "--gs-phase-return-ratio",
+      "--gs-phase-silence-ratio",
+      "--gs-return-duration",
+      "--gs-return-ease",
+      "--gse-deepening",
+      "--gse-entry",
+      "--gse-min-exit",
+      "--gse-return",
+      "--gse-silence",
+      "--lens-a",
+      "--lens-a-muted",
+      "--lens-b",
+      "--lens-b-muted",
+      "--lh-0",
+      "--lh-1",
+      "--lh-2",
+      "--lh-body",
+      "--lh-tight",
+      "--ls-hud",
+      "--ls-label",
+      "--ls-quiet",
+      "--ls-ritual",
+      "--luminance-step",
+      "--motion-scale-max",
+      "--phi",
+      "--phi-breath",
+      "--phi-content",
+      "--phi-inv",
+      "--phi-inv-2",
+      "--phi-sq",
+      "--phi-surface-zero",
+      "--radius-2xl",
+      "--radius-form",
+      "--radius-full",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-ritual",
+      "--radius-s1",
+      "--radius-s2",
+      "--radius-s3",
+      "--radius-s4",
+      "--radius-sm",
+      "--radius-xl",
+      "--radius-xs",
+      "--shadow-lg",
+      "--shadow-md",
+      "--shadow-none",
+      "--shadow-sm",
+      "--shadow-xl",
+      "--shadow-xs",
+      "--signal",
+      "--signal-adopted",
+      "--signal-critical",
+      "--signal-progress",
+      "--silence-cycle",
+      "--space-base",
+      "--space-fib-10",
+      "--space-fib-11",
+      "--space-fib-12",
+      "--space-fib-13",
+      "--space-fib-4",
+      "--space-fib-5",
+      "--space-fib-6",
+      "--space-fib-7",
+      "--space-fib-8",
+      "--space-fib-9",
+      "--space-phi-0",
+      "--space-phi-1",
+      "--space-phi-2",
+      "--space-phi-3",
+      "--space-phi-4",
+      "--space-phi-5",
+      "--space-phi-n1",
+      "--space-phi-n2",
+      "--space-phi-n3",
+      "--space-phi-n4",
+      "--space-safe-area",
+      "--state-accent",
+      "--state-attention",
+      "--state-attention-soft",
+      "--state-border",
+      "--state-brightness",
+      "--state-enter-calm",
+      "--state-enter-focus",
+      "--state-error",
+      "--state-error-soft",
+      "--state-glow",
+      "--state-ok",
+      "--state-sat",
+      "--state-snapback",
+      "--state-surface",
+      "--state-text",
+      "--state-transition",
+      "--surface-base",
+      "--surface-card",
+      "--surface-elevated",
+      "--surface-float",
+      "--surface-lifted",
+      "--surface-overlay",
+      "--surface-raised",
+      "--surface-zero",
+      "--surface-zero-deep",
+      "--text-body",
+      "--text-copy",
+      "--text-display",
+      "--text-heading",
+      "--text-hud",
+      "--text-muted",
+      "--text-primary",
+      "--text-ritual",
+      "--text-secondary",
+      "--text-title",
+      "--theme-audio",
+      "--theme-texture",
+      "--touch-min"
+    ],
+    "tokenKinds": {
+      "--phi": "other",
+      "--phi-inv": "other",
+      "--phi-inv-2": "other",
+      "--phi-sq": "other",
+      "--luminance-step": "other",
+      "--content-ratio": "other",
+      "--breath-ratio": "other",
+      "--surface-base": "color",
+      "--surface-raised": "color",
+      "--surface-elevated": "color",
+      "--surface-overlay": "color",
+      "--surface-float": "color",
+      "--surface-lifted": "color",
+      "--phi-surface-zero": "color",
+      "--surface-zero": "color",
+      "--surface-zero-deep": "color",
+      "--text-primary": "font",
+      "--text-secondary": "font",
+      "--text-muted": "font",
+      "--text-ritual": "font",
+      "--accent-gold": "color",
+      "--accent-gold-dim": "color",
+      "--accent-gold-glow": "color",
+      "--accent-soft": "color",
+      "--accent-teal": "color",
+      "--gold-glow-base": "color",
+      "--gold-glow-peak": "color",
+      "--signal-adopted": "color",
+      "--signal-progress": "color",
+      "--signal-critical": "color",
+      "--state-attention": "color",
+      "--state-attention-soft": "color",
+      "--state-error": "color",
+      "--state-error-soft": "color",
+      "--state-ok": "color",
+      "--border-subtle": "color",
+      "--border-medium": "color",
+      "--border-strong": "color",
+      "--border-gold": "color",
+      "--bg-app": "color",
+      "--surface-card": "color",
+      "--text-body": "font",
+      "--text-heading": "font",
+      "--signal": "color",
+      "--focus-ring": "color",
+      "--lens-a": "other",
+      "--lens-b": "other",
+      "--lens-a-muted": "other",
+      "--lens-b-muted": "other",
+      "--glow-lens-a": "other",
+      "--glow-lens-b": "other",
+      "--color-surface": "other",
+      "--color-text": "other",
+      "--color-accent": "other",
+      "--accent-brand": "color",
+      "--space-base": "other",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-mono": "font",
+      "--fs-n1": "spacing",
+      "--fs-0": "spacing",
+      "--fs-1": "spacing",
+      "--fs-2": "spacing",
+      "--fs-3": "spacing",
+      "--fs-utility": "other",
+      "--lh-0": "other",
+      "--lh-1": "other",
+      "--lh-2": "other",
+      "--lh-body": "other",
+      "--lh-tight": "other",
+      "--ls-quiet": "other",
+      "--ls-ritual": "other",
+      "--ls-label": "other",
+      "--ls-hud": "other",
+      "--fw-light": "other",
+      "--fw-regular": "other",
+      "--fw-medium": "other",
+      "--text-display": "other",
+      "--text-title": "other",
+      "--text-copy": "other",
+      "--text-hud": "other",
+      "--space-phi-n4": "spacing",
+      "--space-phi-n3": "spacing",
+      "--space-phi-n2": "spacing",
+      "--space-phi-n1": "spacing",
+      "--space-phi-0": "spacing",
+      "--space-phi-1": "spacing",
+      "--space-phi-2": "spacing",
+      "--space-phi-3": "spacing",
+      "--space-phi-4": "spacing",
+      "--space-phi-5": "spacing",
+      "--space-fib-4": "spacing",
+      "--space-fib-5": "spacing",
+      "--space-fib-6": "spacing",
+      "--space-fib-7": "spacing",
+      "--space-fib-8": "spacing",
+      "--space-fib-9": "spacing",
+      "--space-fib-10": "spacing",
+      "--space-fib-11": "spacing",
+      "--space-fib-12": "spacing",
+      "--space-fib-13": "spacing",
+      "--space-safe-area": "spacing",
+      "--touch-min": "spacing",
+      "--radius-xs": "other",
+      "--radius-sm": "other",
+      "--radius-md": "other",
+      "--radius-lg": "other",
+      "--radius-xl": "other",
+      "--radius-2xl": "other",
+      "--radius-full": "other",
+      "--shadow-none": "other",
+      "--shadow-xs": "other",
+      "--shadow-sm": "other",
+      "--shadow-md": "other",
+      "--shadow-lg": "other",
+      "--shadow-xl": "other",
+      "--glow-accent": "other",
+      "--state-border": "color",
+      "--state-accent": "color",
+      "--dur-instant": "other",
+      "--dur-micro": "other",
+      "--dur-swift": "other",
+      "--dur-standard": "other",
+      "--dur-moderate": "other",
+      "--dur-slow": "other",
+      "--dur-long": "other",
+      "--dur-golden": "other",
+      "--dur-breathe": "other",
+      "--dur-rest": "other",
+      "--dur-ceremony": "other",
+      "--ease-phi": "other",
+      "--ease-emerge": "other",
+      "--ease-breath": "other",
+      "--silence-cycle": "other",
+      "--ease-phi-decel": "other",
+      "--ease-phi-accel": "other",
+      "--ease-golden": "other",
+      "--ease-settle": "other",
+      "--breath-in-ratio": "other",
+      "--breath-hold-ratio": "other",
+      "--breath-out-ratio": "other",
+      "--breath-in-ms": "other",
+      "--breath-hold-ms": "other",
+      "--breath-out-ms": "other",
+      "--breath-flow-cycle": "other",
+      "--breath-focus-cycle": "other",
+      "--breath-calm-cycle": "other",
+      "--breath-flow-in": "other",
+      "--breath-flow-hold": "other",
+      "--breath-flow-out": "other",
+      "--breath-focus-in": "other",
+      "--breath-focus-hold": "other",
+      "--breath-focus-out": "other",
+      "--breath-calm-in": "other",
+      "--breath-calm-hold": "other",
+      "--breath-calm-out": "other",
+      "--fib-tap-1": "other",
+      "--fib-tap-2": "other",
+      "--fib-tap-3": "other",
+      "--fib-tap-4": "other",
+      "--fib-tap-5": "other",
+      "--fib-tap-6": "other",
+      "--fib-reset-threshold": "other",
+      "--state-enter-focus": "other",
+      "--state-enter-calm": "other",
+      "--state-snapback": "other",
+      "--gse-entry": "other",
+      "--gse-deepening": "other",
+      "--gse-silence": "other",
+      "--gse-return": "other",
+      "--gse-min-exit": "other",
+      "--breath-cycle": "color",
+      "--state-transition": "color",
+      "--radius-s1": "radius",
+      "--radius-s2": "radius",
+      "--radius-s3": "radius",
+      "--radius-s4": "radius",
+      "--radius-ritual": "radius",
+      "--radius-form": "radius",
+      "--radius-pill": "radius",
+      "--phi-content": "other",
+      "--phi-breath": "other",
+      "--golden-point-y": "other",
+      "--golden-point-x": "other",
+      "--bp-compact": "other",
+      "--bp-medium": "other",
+      "--bp-wide": "other",
+      "--form-ratio": "other",
+      "--accent-theme": "color",
+      "--theme-audio": "other",
+      "--theme-texture": "other",
+      "--audio-fade-in": "other",
+      "--audio-fade-out": "other",
+      "--audio-crossfade": "other",
+      "--audio-master-max": "other",
+      "--audio-transient-max-db": "other",
+      "--audio-pan-period": "other",
+      "--audio-pan-width": "other",
+      "--audio-gain-ember": "other",
+      "--audio-gain-graphite": "other",
+      "--audio-gain-midnight": "other",
+      "--audio-gain-ion": "other",
+      "--audio-level-0": "other",
+      "--audio-level-1": "other",
+      "--audio-level-2": "other",
+      "--audio-level-3": "other",
+      "--audio-ember-lowpass": "other",
+      "--audio-ember-q": "other",
+      "--audio-ember-rolloff": "other",
+      "--audio-graphite-slope": "other",
+      "--audio-midnight-bp-low": "other",
+      "--audio-midnight-bp-high": "other",
+      "--audio-midnight-q": "other",
+      "--audio-ion-bp-low": "other",
+      "--audio-ion-bp-high": "other",
+      "--audio-ion-sub": "other",
+      "--state-brightness": "other",
+      "--state-sat": "other",
+      "--motion-scale-max": "other",
+      "--content-density": "spacing",
+      "--state-surface": "color",
+      "--state-glow": "other",
+      "--state-text": "font",
+      "--gs-phase-entry-ratio": "other",
+      "--gs-phase-deepen-ratio": "other",
+      "--gs-phase-silence-ratio": "other",
+      "--gs-phase-return-ratio": "other",
+      "--gs-entry-duration": "other",
+      "--gs-entry-ease": "other",
+      "--gs-deepen-transition": "other",
+      "--gs-deepen-ease": "other",
+      "--gs-return-duration": "other",
+      "--gs-return-ease": "other"
+    },
+    "fontFamilies": [
+      "IBM Plex Mono",
+      "IBM Plex Sans",
+      "STIX Two Text"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+/* Cztery motywy = SKORKI powierzchni. Zrodlo: DS_DASHBOARD_B2C_WYTYCZNE v1.0 (nowsze) + DS_UI_KOMPLET v1.0.
+   NC-092 ROZSTRZYGNIETE: --accent-gold #C9A84C = akcent MARKI (CTA, primary, focus ring, sygnal
+   krytyczny, paywall) — NIEZMIENNY we wszystkich motywach. --accent-theme = wylacznie dekoracja
+   powierzchni rytualu; nigdy nie zastepuje akcentu marki.
+   KONFLIKT #1 ROZSTRZYGNIETY: --surface-zero (#121417) uzywane WYLACZNIE jako pre-entry (EKRAN_ZERO).
+   Po wejsciu w dashboard motyw ustala wlasna palete powierzchni.
+   Zmiana motywu nie zmienia layoutu, timingow ani typografii. */
+:root{
+  --accent-brand:#C9A84C;
+  --accent-theme:#7FB0B8;
+  --theme-audio:none; /* @kind other */
+  --theme-texture:none; /* @kind other */
+}
+
+[data-silence-theme="ember"]{
+  --surface-base:#101318;--surface-raised:#171B22;--surface-elevated:#1F2430;--surface-overlay:#272D3B;
+  --text-primary:#E6ECF5;--text-secondary:#A7B0C2;--text-muted:#6B7487;
+  --accent-theme:#7FB0B8;--accent-gold:#C9A84C;
+  --theme-texture:film-grain; /* @kind other */--theme-audio:brown-noise; /* @kind other */
+}
+[data-silence-theme="graphite"]{
+  --surface-base:#0E1116;--surface-raised:#191E26;--surface-elevated:#232935;--surface-overlay:#2C3441;
+  --text-primary:#E6ECF5;--text-secondary:#A7B0C2;--text-muted:#6B7487;
+  --accent-theme:#6B8F96;--accent-gold:#C9A84C;
+  --theme-texture:vertical-band; /* @kind other */--theme-audio:pink-noise; /* @kind other */
+}
+[data-silence-theme="midnight"]{
+  --surface-base:#111218;--surface-raised:#1A1B22;--surface-elevated:#22232B;--surface-overlay:#2A2B34;
+  --text-primary:#E6ECF5;--text-secondary:#A7B0C2;--text-muted:#6B7487;
+  --accent-theme:#C49A6A;--accent-gold:#C9A84C;
+  --theme-texture:paper-noise; /* @kind other */--theme-audio:room-tone; /* @kind other */
+}
+[data-silence-theme="ion"]{
+  --surface-base:#0E1318;--surface-raised:#151B22;--surface-elevated:#1D252E;--surface-overlay:#27313C;
+  --text-primary:#E6ECF5;--text-secondary:#A7B0C2;--text-muted:#6B7487;
+  --accent-theme:#8EC0C7;--accent-gold:#C9A84C;
+  /* Ion: akcent bez poswiaty (kanon) */
+  --gold-glow-base:transparent;--gold-glow-peak:transparent;
+  --theme-texture:radial-haze; /* @kind other */--theme-audio:air-hum; /* @kind other */
+}

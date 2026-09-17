@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/phi.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/motion.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/radii.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/themes.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/audio.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/states.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/tokens/a11y.css">
+  <link rel="stylesheet" href="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/styles.css">
+  <script src="_ds/soft-noir-design-system-aee1d55b-dcd4-46b0-bf83-3795d0ea997f/_ds_bundle.js"></script>
+  <style>
+    @keyframes breath-calm-guide{
+      0%{transform:scale(1);opacity:0.618}
+      33.09%{transform:scale(1.02);opacity:1}
+      46.48%{transform:scale(1.02);opacity:1}
+      100%{transform:scale(1);opacity:0.618}
+    }
+    @keyframes breath-calm-guide-reduced{
+      0%{opacity:0.618}
+      33.09%{opacity:1}
+      46.48%{opacity:1}
+      100%{opacity:0.618}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .step1-rhythm-root, .step1-rhythm-root *{
+        animation-duration:0.01ms !important;
+        transition-duration:0.01ms !important;
+      }
+    }
+  </style>
+</helmet>
+
+<div class="step1-rhythm-root" data-silence-theme="{{ theme }}" style="width:100%;min-height:100vh;display:grid;place-items:center;background:var(--surface-base);padding:var(--space-phi-2)">
+  <x-import component-from-global-scope="Phone" hint-size="393px,852px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:var(--space-phi-1)">
+
+      <x-import component-from-global-scope="StepHead" step="1" total="7" label="KALIBRACJA_RYTMU" hint-size="100%,20px"></x-import>
+
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-phi-1);text-align:center">
+        <header style="display:flex;flex-direction:column;gap:var(--space-fib-6);max-width:89%">
+          <p style="margin:0;font-family:var(--font-display);font-size:var(--fs-1);line-height:1.1;letter-spacing:var(--ls-ritual);color:var(--text-primary)">PatternLens dostosowuje się do Twojego tempa.</p>
+          <p style="margin:0;font-family:var(--font-body);font-size:var(--fs-0);line-height:var(--lh-body);color:var(--text-secondary)">Zrób trzy spokojne oddechy w rytmie, który widzisz.</p>
+          <p style="margin:0;font-family:var(--font-mono);font-size:var(--fs-utility);letter-spacing:var(--ls-hud);text-transform:uppercase;color:var(--text-muted);opacity:0.85">{{ captionText }}</p>
+        </header>
+
+        <div style="position:relative;width:min(55.9vw,213px);aspect-ratio:1;display:grid;place-items:center">
+          <div aria-hidden="true" style="position:absolute;inset:0;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent-theme) 32%,transparent)"></div>
+          <div aria-hidden="true" style="{{ circleGlowStyle }}position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb,var(--accent-theme) 14%,transparent) 0%, transparent 72%)"></div>
+        </div>
+
+        <div style="display:flex;gap:var(--space-fib-5)" role="img" aria-label="Postęp oddechów">
+          <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="3">
+            <div aria-hidden="true" style="{{ dot.dotStyle }}width:var(--space-fib-5);height:var(--space-fib-5);border-radius:50%"></div>
+          </sc-for>
+        </div>
+      </div>
+
+      <footer style="display:flex;align-items:center;justify-content:space-between;padding-bottom:var(--space-fib-6)">
+        <x-import component-from-global-scope="SoftNoirDesignSystem_aee1d5.Button" variant="bare" onClick="{{ handleSkip }}" hint-size="auto,44px">Pomiń</x-import>
+        <x-import component-from-global-scope="SoftNoirDesignSystem_aee1d5.Button" variant="signal" disabled="{{ nextDisabled }}" onClick="{{ handleNext }}" hint-size="auto,44px">Dalej</x-import>
+      </footer>
+
+    </div>
+  </x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:393,&quot;height&quot;:852},&quot;onNext&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;},&quot;onSkip&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;ember&quot;,&quot;options&quot;:[&quot;ember&quot;,&quot;graphite&quot;,&quot;midnight&quot;,&quot;ion&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;breathTarget&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:6,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;reducedMotionOverride&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+const CYCLE_MS = 12090; /* var(--breath-calm-cycle) — NC canonical calm breath */
+
+function breathWord(n) {
+  if (n === 1) return 'oddech';
+  if (n >= 2 && n <= 4) return 'oddechy';
+  return 'oddechów';
+}
+
+class Component extends DCLogic {
+  state = { completedBreaths: 0, elapsedMs: 0, running: true };
+
+  componentDidMount() {
+    this._start = performance.now();
+    this._tick();
+    this._interval = setInterval(this._tick, 200);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._interval);
+  }
+
+  _target() {
+    return this.props.breathTarget ?? 3;
+  }
+
+  _tick = () => {
+    if (!this.state.running) return;
+    const elapsed = performance.now() - this._start;
+    const target = this._target();
+    const breaths = Math.min(Math.floor(elapsed / CYCLE_MS), target);
+    const done = breaths >= target;
+    this.setState({ elapsedMs: elapsed, completedBreaths: breaths, running: !done });
+    if (done) clearInterval(this._interval);
+  };
+
+  handleSkip = () => {
+    this.setState({ running: false });
+    clearInterval(this._interval);
+    if (this.props.onSkip) this.props.onSkip();
+  };
+
+  handleNext = () => {
+    if (this.props.onNext) this.props.onNext();
+  };
+
+  renderVals() {
+    const target = this._target();
+    const reducedMotion = (this.props.reducedMotionOverride ?? false) ||
+      (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const { completedBreaths, elapsedMs, running } = this.state;
+    const remainingBreaths = Math.max(0, target - completedBreaths);
+    const secondsLeft = Math.max(0, Math.ceil((target * CYCLE_MS - elapsedMs) / 1000));
+    const doneAll = completedBreaths >= target;
+
+    const dots = Array.from({ length: target }, (_, i) => ({
+      i,
+      dotStyle: i < completedBreaths
+        ? 'background:var(--accent-gold);border:1px solid var(--border-gold);'
+        : 'background:transparent;border:1px solid var(--border-subtle);',
+    }));
+
+    const circleGlowStyle =
+      `animation-name:${reducedMotion ? 'breath-calm-guide-reduced' : 'breath-calm-guide'};` +
+      `animation-duration:var(--breath-calm-cycle);` +
+      `animation-timing-function:var(--ease-breath);` +
+      `animation-iteration-count:${target};` +
+      `animation-play-state:${running ? 'running' : 'paused'};` +
+      `animation-fill-mode:both;`;
+
+    const captionText = doneAll
+      ? 'Rytm zarejestrowany.'
+      : `Zostało ${remainingBreaths} ${breathWord(remainingBreaths)} · ok. ${secondsLeft}s`;
+
+    return {
+      dots, circleGlowStyle, captionText,
+      nextDisabled: !doneAll,
+      handleSkip: this.handleSkip,
+      handleNext: this.handleNext,
+      theme: this.props.theme || 'ember',
+    };
+  }
+}
+</script>
+</body>
+</html>

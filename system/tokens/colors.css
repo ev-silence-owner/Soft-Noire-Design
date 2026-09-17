@@ -1,0 +1,80 @@
+/* SURFACES — L-scale phi-derived (NC-091). Linear 8/12/16/20 = DRIFT.
+   TEXT — no #FFFFFF. SURFACES — no #000000. ACCENT — #C9A84C only (NC-092); #D8A45A = DRIFT. */
+:root{
+  color-scheme:dark;
+
+  /* 5 brightness tiers, luminance scaled by sqrt(phi) = 1.272.
+     Values are bit-exact from the SSoT: 04_packages/@silence/phi-tokens/src/phi-tokens.css */
+  --surface-base:#0F0F14;      /* Tier 0 — abyss */
+  --surface-raised:#1A1A20;    /* Tier 1 */
+  --surface-elevated:#25252E;  /* Tier 2 */
+  --surface-overlay:#32323E;   /* Tier 3 */
+  --surface-float:#3F3F4F;     /* Tier 4 */
+  --surface-lifted:var(--surface-float); /* alias */
+  --phi-surface-zero:#07070F;  /* ADR-003 — pre-entry surface, deeper than Tier 0 */
+  --surface-zero:#121417;      /* Ekran Zero base (SPEC_ELEMENT_CISZY) */
+  --surface-zero-deep:#0D0F12; /* Ekran Zero phase 3 floor — never #000000 */
+
+  /* TEXT — contrast measured against --surface-base */
+  --text-primary:#E8E8F0;   /* ~14.5:1 */
+  --text-secondary:#CBD5E1; /* ~9.2:1 */
+  --text-muted:#ADADBD;     /* ~4.58:1 — AA floor */
+  --text-ritual:#E8E4DF;    /* ritual copy on --surface-zero, 13.8:1 */
+
+  /* ACCENT */
+  --accent-gold:#C9A84C;
+  --accent-gold-dim:#8B7355;
+  --accent-gold-glow:#F5D78E;
+  --accent-soft:#4A8DE8;
+  --accent-teal:#7FB0B8;
+  --gold-glow-base:rgba(201,168,76,0.22);
+  --gold-glow-peak:rgba(201,168,76,0.38);
+
+  /* SIGNAL B2B (patternslab.app) — stonowane, per DASHBOARD_B2C.
+     #b85c5c to JEDYNA sankcjonowana czerwien w calym systemie i wystepuje
+     wylacznie na powierzchni zarzadczej. Powierzchnie rytualu nie maja czerwieni. */
+  --signal-adopted:#6fa86f;   /* zaadaptowana zielen, nie kliniczna */
+  --signal-progress:#c9964c;  /* cieply amber, nie alarm */
+  --signal-critical:#b85c5c;  /* stonowana czerwien, najwyzsza waga */
+
+  /* SIGNAL — soft only. No red banners (NC / CISZA). */
+  --state-attention:hsl(38 92% 50%);
+  --state-attention-soft:hsl(38 92% 50% / 0.10);
+  --state-error:hsl(0 72% 51%);
+  --state-error-soft:hsl(0 72% 51% / 0.10);
+  --state-ok:hsl(158 40% 48%);
+
+  /* BORDERS */
+  --border-subtle:hsl(220 15% 92% / 0.08);
+  --border-medium:hsl(220 15% 92% / 0.12);
+  --border-strong:hsl(220 15% 92% / 0.18);
+  --border-gold:color-mix(in srgb,var(--accent-gold) 38%,transparent);
+
+  /* SEMANTIC ALIASES */
+  --bg-app:var(--surface-base);
+  --surface-card:var(--surface-raised);
+  --text-body:var(--text-secondary);
+  --text-heading:var(--text-primary);
+  --signal:var(--accent-gold);
+  --focus-ring:var(--accent-gold);
+}
+
+/* LENS SYSTEM — phi-tokens SSoT (sync 2026-08-31). */
+:root{
+  --lens-a:hsl(217,91%,60%); /* @kind other */ /* external, cool blue */
+  --lens-b:hsl(271,91%,65%); /* @kind other */ /* internal, warm purple */
+  --lens-a-muted:hsl(217,91%,60%,0.15); /* @kind other */
+  --lens-b-muted:hsl(271,91%,65%,0.15); /* @kind other */
+  --glow-lens-a:0 0 21px 0 color-mix(in srgb,var(--lens-a) 20%,transparent); /* @kind other */
+  --glow-lens-b:0 0 21px 0 color-mix(in srgb,var(--lens-b) 20%,transparent); /* @kind other */
+}
+
+/* NC-113 ALIASES — naprawa /home bez stylów (PR #69). Mapy 1:1 na SSoT. */
+:root{
+  --color-surface:var(--surface-base); /* @kind other */
+  --color-text:var(--text-primary); /* @kind other */
+  --color-accent:var(--accent-gold); /* @kind other */ /* FIX 2026-08-31: było --accent-brand (undefined) */
+  --accent-brand:var(--accent-gold); /* @kind other */ /* alias — produkcja używa obu nazw */
+  --space-base:var(--space-phi-0); /* @kind other */
+  /* DRIFT additions 2026-08-30: #32b8c6 #06b6d4 dołączone do listy DRIFT D-7 */
+}

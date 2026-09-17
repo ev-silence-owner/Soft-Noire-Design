@@ -1,0 +1,35 @@
+/* Profile audio per motyw (ADR-015). Silnik: noiseEngine, WebAudio — zero plikow zrodlowych.
+   Default OFF. Start wylacznie z gestu. Zakaz audio w onboardingu 0–2 (przed wezlem sensorycznym).
+   KONFLIKT GAINOW: DS_UI_KOMPLET podaje 0.20/0.20/0.15/0.12, DS_DASHBOARD_B2C (nowszy) 0.30/0.25/0.20/0.15.
+   Przyjeto wartosci DS_DASHBOARD_B2C; master cap 0.25 pozostaje twardy i skaluje sume w dol. */
+:root{
+  --audio-fade-in:1618ms; /* @kind other */
+  --audio-fade-out:618ms; /* @kind other */
+  --audio-crossfade:2618ms; /* @kind other */
+  --audio-master-max:0.25; /* @kind other */
+  --audio-transient-max-db:3; /* @kind other */
+
+  --audio-pan-period:16180ms; /* @kind other */
+  --audio-pan-width:0.618; /* @kind other */
+
+  --audio-gain-ember:0.30; /* @kind other */
+  --audio-gain-graphite:0.25; /* @kind other */
+  --audio-gain-midnight:0.20; /* @kind other */
+  --audio-gain-ion:0.15; /* @kind other */
+
+  --audio-level-0:0; /* @kind other */
+  --audio-level-1:0.5; /* @kind other */
+  --audio-level-2:1; /* @kind other */
+  --audio-level-3:1.272; /* @kind other */
+
+  --audio-ember-lowpass:2000; /* @kind other */
+  --audio-ember-q:0.618; /* @kind other */
+  --audio-ember-rolloff:-6; /* @kind other */
+  --audio-graphite-slope:-3; /* @kind other */
+  --audio-midnight-bp-low:80; /* @kind other */
+  --audio-midnight-bp-high:400; /* @kind other */
+  --audio-midnight-q:1.2; /* @kind other */
+  --audio-ion-bp-low:200; /* @kind other */
+  --audio-ion-bp-high:600; /* @kind other */
+  --audio-ion-sub:100; /* @kind other */
+}

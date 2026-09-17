@@ -1,0 +1,10 @@
+/* MATH_CORE — phi-tokens.canonical.css v1.1.0 (SSoT, NC-089). Change = ADR + NC entry. */
+:root{
+  --phi:1.618033988749895; /* @kind other */
+  --phi-inv:0.618033988749895; /* @kind other */
+  --phi-inv-2:0.381966011250105; /* @kind other */
+  --phi-sq:2.618033988749895; /* @kind other */
+  --luminance-step:1.272019649514069; /* @kind other */ /* sqrt(phi) */
+  --content-ratio:61.8%; /* @kind other */
+  --breath-ratio:38.2%; /* @kind other */
+}

@@ -1,0 +1,87 @@
+/* Duration cascade NC-089: golden=phi^1, breathe=phi^2, rest=phi^3, ceremony=phi^4. */
+:root{
+  --dur-instant:62ms; /* @kind other */
+  --dur-micro:236ms; /* @kind other */ /* φ⁻⁴×GS=236.4 — SYNC 2026-08-31: 100ms=DRIFT per phi-tokens SSoT */
+  --dur-swift:262ms; /* @kind other */ /* φ⁻³ */
+  --dur-standard:424ms; /* @kind other */ /* φ⁻¹ — was 262ms (DRIFT) */
+  --dur-moderate:424ms; /* @kind other */ /* alias for backward compat */
+  --dur-slow:685ms; /* @kind other */
+  --dur-long:1094ms; /* @kind other */
+  --dur-golden:1618ms; /* @kind other */ /* GOLDEN_SECOND */
+  --dur-breathe:2618ms; /* @kind other */ /* STABILITY_HEARTBEAT */
+  --dur-rest:4236ms; /* @kind other */ /* SILENCE_CYCLE */
+  --dur-ceremony:6854ms; /* @kind other */ /* SILENCE_CYCLE full */
+
+  --ease-phi:cubic-bezier(0.382,0,0.618,1); /* @kind other */
+  --ease-emerge:cubic-bezier(0.382,0,0.618,1); /* @kind other */ /* alias = --ease-phi, K-01 CLOSED 2026-08-13 */
+  --ease-breath:cubic-bezier(0.45,0,0.55,1); /* @kind other */ /* symmetrical sinus — patternlens-tokens L4 */
+  --silence-cycle:6854ms; /* @kind other */ /* 1000×φ⁴ — canonical alias dla --dur-ceremony (NC-120) */
+  --ease-phi-decel:cubic-bezier(0,0.382,0.382,1); /* @kind other */
+  --ease-phi-accel:cubic-bezier(0.618,0,1,0.618); /* @kind other */
+  --ease-golden:cubic-bezier(0.38,0,0.12,1); /* @kind other */
+  --ease-settle:cubic-bezier(0.236,0,0.236,1); /* @kind other */
+
+  --breath-in-ratio:0.382; /* @kind other */
+  --breath-hold-ratio:0.236; /* @kind other */
+  --breath-out-ratio:0.382; /* @kind other */
+  --breath-in-ms:618ms; /* @kind other */
+  --breath-hold-ms:382ms; /* @kind other */
+  --breath-out-ms:618ms; /* @kind other */
+  --breath-flow-cycle:5000ms; /* @kind other */
+  --breath-focus-cycle:9472ms; /* @kind other */
+  --breath-calm-cycle:12090ms; /* @kind other */
+
+  /* Breath phase tokens — per state (NC-breath-phases) */
+  --breath-flow-in:2500ms; /* @kind other */
+  --breath-flow-hold:0ms; /* @kind other */
+  --breath-flow-out:2500ms; /* @kind other */
+  --breath-focus-in:3000ms; /* @kind other */
+  --breath-focus-hold:1618ms; /* @kind other */ /* = --dur-golden */
+  --breath-focus-out:4854ms; /* @kind other */ /* 3000×φ */
+  --breath-calm-in:4000ms; /* @kind other */
+  --breath-calm-hold:1618ms; /* @kind other */
+  --breath-calm-out:6472ms; /* @kind other */ /* 4000×φ */
+
+  /* Fibonacci Damping caps — NC-fib-damp */
+  --fib-tap-1:100ms; /* @kind other */
+  --fib-tap-2:200ms; /* @kind other */
+  --fib-tap-3:300ms; /* @kind other */
+  --fib-tap-4:500ms; /* @kind other */
+  --fib-tap-5:800ms; /* @kind other */
+  --fib-tap-6:1300ms; /* @kind other */ /* cap — do not exceed */
+  --fib-reset-threshold:3000ms; /* @kind other */
+
+  /* State transition durations */
+  --state-enter-focus:1618ms; /* @kind other */ /* Flow→Focus */
+  --state-enter-calm:2618ms; /* @kind other */ /* Focus→Calm */
+  --state-snapback:424ms; /* @kind other */ /* Calm→Flow fast return */
+
+  /* FSM Golden Silence Entry, 60 000 ms total */
+  --gse-entry:6472ms; /* @kind other */
+  --gse-deepening:10472ms; /* @kind other */
+  --gse-silence:32360ms; /* @kind other */
+  --gse-return:10696ms; /* @kind other */
+  --gse-min-exit:8090ms; /* @kind other */ /* 5 x GS — earliest conscious exit */
+}
+
+@keyframes phi-breath{0%{transform:scale(1);opacity:.9}38.2%,61.8%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:.9}}
+@keyframes breathe-focus{0%{transform:scale(1)}31.7%,48.8%{transform:scale(1.012)}100%{transform:scale(1)}}
+@keyframes breathe-calm{0%{transform:scale(1)}33.1%,46.5%{transform:scale(1.013)}100%{transform:scale(1)}}
+@keyframes golden-ring-pulse{0%,100%{opacity:.236}50%{opacity:.618}}
+@keyframes fade-in-silent{from{opacity:0}to{opacity:1}}
+@keyframes breath-phi-line{0%{width:var(--space-fib-7)}38.2%,61.8%{width:var(--space-fib-11)}100%{width:var(--space-fib-7)}}
+
+@keyframes spin-phi{to{transform:rotate(360deg)}}
+@keyframes zero-pulse{0%,100%{transform:scale(1);opacity:.382}38.2%,61.8%{transform:scale(1.618);opacity:.85}}
+
+@keyframes quiet-breath{0%,100%{transform:scaleY(1);opacity:.9}38.2%,61.8%{transform:scaleY(1.012);opacity:1}}
+
+/* Breathing surface pulse — state-aware, respects reduced-motion */
+@keyframes breathe{0%,100%{opacity:var(--breath-min,0.97)}50%{opacity:var(--breath-max,1.0)}}
+.surface-breathe{animation:breathe var(--breath-cycle,var(--breath-flow-cycle)) var(--ease-golden) infinite}
+@media(prefers-reduced-motion:reduce){.surface-breathe{animation:none}}
+
+/* State-scoped transition overrides */
+[data-state="flow"]{--breath-cycle:var(--breath-flow-cycle);--state-transition:var(--state-snapback)}
+[data-state="focus"]{--breath-cycle:var(--breath-focus-cycle);--state-transition:var(--state-enter-focus)}
+[data-state="calm"]{--breath-cycle:var(--breath-calm-cycle);--state-transition:var(--state-enter-calm)}
